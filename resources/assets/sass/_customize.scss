@@ -1,0 +1,44 @@
+.no-padding{
+  padding: 0px!important;
+}
+.no-border {
+  border: none !important;
+}
+
+.card-header {
+  .button-absolute {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+// Flex-photos
+
+.flex-photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  flex: 1;
+}
+
+@media (max-width: 576px) {
+  .profile-photo {
+    width: 100% !important;
+  }
+}
+
+/* Input Spin buttom  */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
