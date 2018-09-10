@@ -45,7 +45,7 @@
 
             <div class="col-md-4 mt-3">
               <div class="card no-border">
-                <div class="card-body">
+                <div class="card-body no-padding">
                   <img class="card-img-top img-fluid" src="{{ asset('/storage/escorts/photos/'. $escort->photo_1) }}" alt="Imagen perfil del escort">
                 </div>
                 <div class="card-footer">

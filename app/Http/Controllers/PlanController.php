@@ -9,7 +9,7 @@ class PlanController extends Controller
 {
   public function index()
   {
-      $plans = Country::get()->paginate(6);
+      $plans = Plan::orderBy('price', 'ASC')->paginate(6);
       return view('dashboard.plan.index', compact('plans'));
   }//index view
 

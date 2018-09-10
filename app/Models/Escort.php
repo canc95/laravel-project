@@ -35,6 +35,10 @@ class Escort extends Model implements HasMedia
   {
     return $this->belongsTo('App\User');
   }
+  public function multimedias ()
+  {
+    return $this->hasMany('App\Models\Multimedia');
+  }
   public function plan()
   {
     return $this->belongsTo('App\Models\Plan');

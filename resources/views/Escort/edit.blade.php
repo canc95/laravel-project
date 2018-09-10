@@ -40,7 +40,23 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Gender</label>
-                  <input type="text" name="gender" value="{{$escort->gender}}" class="form-control">
+                  <select class="form-control" name="gender">
+                    <option @if ($escort->gender == "Female")
+                          {{"selected"}}
+                        @endif>
+                        Female
+                      </option>
+                      <option @if ($escort->gender == "Male")
+                          {{"selected"}}
+                        @endif>
+                        Male
+                      </option>
+                      <option @if ($escort->gender == "Other")
+                        {{"selected"}}
+                      @endif>
+                      Other
+                    </option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -121,37 +137,23 @@
               </div>
               <div class="col-md-8">
                 <label>About me</label>
-                <textarea name="description" rows="3" class="form-control">{{$escort->description}}</textarea>
+                <textarea name="description" rows="3" style="resize:none;" class="form-control">{{$escort->description}}</textarea>
               </div>
             </div>
             <div class="form-row mt-3">
-              <div class="col-md-4 offset-md-1">
+              <div class="col-md-6">
                 <div class="custom-file">
-                  {{-- <input type="file" class="custom-file-input" name="photo_1">
-                  <label class="custom-file-label">Foto de perfil</label> --}}
-                  <label>Foto de perfíl</label>
-                  <input type="file" class="form-control-file" name="photo_1">
+                  <input type="file" class="custom-file-input" name="photo_1">
+                  <label class="custom-file-label">Profile Photo</label>
                 </div>
 
               </div>
-              <div class="col-md-4 offset-md-2">
-                <label>Fotos adicional</label>
-                <input type="file" class="form-control-file" name="photo_2">
+              <div class="col-md-6">
+                <input type="file" class="custom-file-input" name="photos_extras[]" multiple>
+                <label class="custom-file-label">Aditional Photos</label>
               </div>
             </div>
             <div class="form-row mt-3">
-              <div class="col-md-4">
-                <label>Fotos adicional</label>
-                <input type="file" class="form-control-file" name="photo_3">
-              </div>
-              <div class="col-md-4">
-                <label>Fotos adicional</label>
-                <input type="file" class="form-control-file" name="photo_4">
-              </div>
-              <div class="col-md-4">
-                <label>Fotos adicional</label>
-                <input type="file" class="form-control-file" name="photo_5">
-              </div>
             </div>
             <div class="col-md-12 text-center mt-5">
               <button type="submit" class="btn btn-outline-primary" name="button">Aceptar</button>

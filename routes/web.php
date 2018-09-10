@@ -50,13 +50,15 @@ Route::group([
     Route::post('/store', 'PlanController@store')->name('dashboard.plan.store');
     //update a plan
     Route::post('/update/{id}', 'PlanController@update')->name('dashboard.plan.update');
+    //delete a plan
+    Route::get('/plan/delete/{id}', 'PlanController@delete')->name('plan.delete');
   });
   //Escort route
   Route::group([
     'prefix' => 'escort'
   ], function(){
     //index all escorts
-    Route::get('/', 'EscortController@dashboard')->name('escort.dashboard');
+    Route::get('/', 'EscortController@dashboard')->name('dashboard.escort.dashboard');
     //delete a escort
     Route::get('/escort/delete/{id}', 'EscortController@delete')->name('escort.delete');
   });

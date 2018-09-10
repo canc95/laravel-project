@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -208,7 +209,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Input' => Illuminate\Support\Facades\Input::class,
+        // Intervention Image
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
