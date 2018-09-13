@@ -11,6 +11,18 @@
           <form action="{{route('escort.update', $escort->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-row">
+              <div class="col-md-12">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">First name</span>
+                  </div>
+                  <input type="text" aria-label="First name" class="form-control border-rounded">
+                  <input type="text" aria-label="Last name" class="form-control border-rounded">
+                  <div class="input-group-append">
+                    <span class="input-group-text">Last name</span>
+                  </div>
+                </div>
+              </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>First Name</label>
