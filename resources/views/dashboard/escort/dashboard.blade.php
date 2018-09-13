@@ -16,15 +16,15 @@
           <tr>
             <td class="text-center">{{$escort->first_name}} {{$escort->last_name}}</td>
             <td class="text-center">{{$escort->age}}</td>
-            <td class="text-center">@if ($escort->status == '1')
-              {{ 'Pending' }}
-            @elseif ($escort->estatus == '2')
+            <td class="text-center">@if ($escort->status = 0)
+              {{ 'Disabled' }}
+            @elseif ($escort->estatus = 1)
               {{ 'Active' }}
-              @else
-                {{ 'Disabled' }}
+            @elseif ($escort->status = 2)
+              {{ 'Pending' }}
             @endif</td>
             <td class="text-center">
-              <a href="#">E</a>
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="{{'#edit' . $escort->id}}"><i class="far fa-edit"></i></button>
             </td>
           </tr>
         @endforeach
@@ -33,6 +33,40 @@
     <div class="mt-5 pagination justify-content-center">
       {!! $escorts->render()!!}
     </div>
+    {{-- Modal edit --}}
+    @foreach ($escorts as $escort)
+      <div class="modal fade" id="edit{{$escort->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar {{$escort->first_name}} {{$escort->last_name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ route('escort.admin_update', $escort->id) }}" method="post">
+                @csrf
+                <div class="form-group">
+                  <label>Estado de la solicitud</label>
+                  <select class="form-control" name="status">
+                    <option selected disabled>Select...</option>
+                    <option value="0">Disabled</option>
+                    <option value="1">Active</option>
+                    <option value="2">Peding</option>
+                  </select>
+                </div>
+                <div class="form-group text-center">
+                  <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    @endforeach
+      {{-- End Modal edit --}}
   </div>
 
 @endsection

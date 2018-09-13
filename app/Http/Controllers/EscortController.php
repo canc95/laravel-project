@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Escort;
+use App\User;
 use App\Models\Multimedia;
 use Storage;
 use Image;
@@ -27,6 +28,8 @@ class EscortController extends Controller
     public function store(Request $request)
     {
         $escort               = new Escort();
+        $escort->user_id      = User::orderBy('id', 'desc')->first()->id;
+        $escort->plan_id      = '2';
         $escort->first_name   = $request->first_name;
         $escort->last_name    = $request->last_name;
         $escort->age          = $request->age;
@@ -54,39 +57,32 @@ class EscortController extends Controller
 
           $escort->photo_1     = $photo_1;
         }
-        if ($request->hasFile('photo_2')) {
-          $photo_2           = 'photo-' . $request->last_name. '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
+        $escort->save();
+        $escort          = Escort::orderBy('id', 'desc')->first();
+        $id              = $escort->id;
 
-          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_2')), $photo_2);
+        if ($request->hasFile('photos_extras')) {
+          foreach ($photos as $file) {
 
-          $escort->photo_2     = $photo_2;
-        }
-        if ($request->hasFile('photo_3')) {
-          $photo_3           = 'photo-' . $request->last_name. '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
+            $name = $file ->getClientOriginalName();
+            $name = strtolower(str_replace(' ', '', $name));
+            $path = $file->hashName();
+            $photo = Image::make($file);
 
-          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_3')), $photo_3);
+            Storage::put("/public/images/{$path}", (string) $photo->encode());
 
-          $escort->photo_3     = $photo_3;
-        }
-        if ($request->hasFile('photo_4')) {
-          $photo_4           = 'photo-' . $request->last_name. '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
-
-          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_4')), $photo_4);
-
-          $escort->photo_4     = $photo_4;
-        }
-        if ($request->hasFile('photo_5')) {
-          $photo_5           = 'photo-' . $request->last_name. '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
-
-          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_5')), $photo_5);
-
-          $escort->photo_5     = $photo_5;
+            $multimedia = new Multimedia;
+            $multimedia->name      = $name;
+            $multimedia->path      = $path;
+            $multimedia->escort_id = $id;
+            $multimedia->save();
+          }
         }
 
         $escort->save();
 
         return redirect()
-          ->route('escort.index');
+          ->route('escort.show', $id);
     }
 
     public function show($id)
@@ -161,9 +157,19 @@ class EscortController extends Controller
     public function destroy(Escort $escort)
     {
         $escort = Escort::find($id);
-        $escort->delete();
+        $escort->status = '0';
 
-        return view('escort.index');
+        return view('dashboard.escort.dashboard');
+    }
+
+    public function admin_update(Request $request, $id)
+    {
+      $escort          = Escort::find($id);
+      $escort->status = $request->status;
+      $escort->save();
+      
+      return redirect()
+        ->route('dashboard.escort.dashboard');
     }
 
     public function dashboard ()

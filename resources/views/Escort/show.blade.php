@@ -12,7 +12,10 @@
         <div class="card">
           <div class="card-header bg-primary p-5 no-border position-relative">
             <h4 class="text-white">{{ $escort->first_name }} {{ $escort->last_name }} <span class="text-danger">{{ $escort->age }}</span></h4>
-            <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span>e</a>
+            @guest
+              @else
+                <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span>e</a>
+            @endguest
           </div>
           <div class="card-body no-border no-padding pt-5">
             <div class="row">
@@ -21,7 +24,7 @@
                 @guest
                   <h6 class="text-uppercase text-center"><a href="{{ route('login') }}" class="nav-link"> <span class="text-uppercase text-danger"><u class="font-weight-bold">Sign in</u></span></a> for see the contact number</h6>
                   @else
-                    <h6 class="text-uppercase text-center"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h6>
+                    <h6 class="text-uppercase text-center mt-3"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h6>
                 @endguest
               </div>
               <div class="col-md-6 mt-3">

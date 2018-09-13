@@ -51,11 +51,16 @@
                         @endif>
                         Male
                       </option>
-                      <option @if ($escort->gender == "Other")
+                      <option @if ($escort->gender == "Transexual")
                         {{"selected"}}
                       @endif>
-                      Other
+                      Transexual
                     </option>
+                    <option @if ($escort->gender == "Other")
+                      {{"selected"}}
+                    @endif>
+                    Other
+                  </option>
                   </select>
                 </div>
               </div>

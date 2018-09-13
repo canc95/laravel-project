@@ -10,8 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PublicController@block')->name('block');
 
-Route::get('/', 'EscortController@index')->name('escort.index');
+Route::get('/home', 'EscortController@index')->name('escort.index');
 
 Route::get('/pickaplan', 'PlanController@pickplan')->name('dashboard.plan.pickplan');
 
@@ -60,7 +61,9 @@ Route::group([
     //index all escorts
     Route::get('/', 'EscortController@dashboard')->name('dashboard.escort.dashboard');
     //delete a escort
-    Route::get('/escort/delete/{id}', 'EscortController@delete')->name('escort.delete');
+    Route::get('/delete/{id}', 'EscortController@delete')->name('escort.delete');
+    // edit status of a escort
+    Route::post('/update/{id}', 'EscortController@admin_update')->name('escort.admin_update');
   });
 });
 
@@ -80,5 +83,3 @@ Route::group([
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -37,7 +37,7 @@
                     </div>
                   </div>
                   <div class="card-footer text-center">
-                    <a href="#" class="btn btn-outline-primary">Select</a>
+                    <a href="{{route('escort.create')}}" class="btn btn-outline-primary btn-block">Select</a>
                   </div>
                 </div>
               </div>

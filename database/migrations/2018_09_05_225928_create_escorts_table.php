@@ -30,7 +30,7 @@ class CreateEscortsTable extends Migration
             $table->string('country');
             $table->string('state');
             $table->string('nationality');
-            $table->double('height', 4, 2);
+            $table->integer('height');
             $table->string('eye_color');
             $table->string('hair_color');
             $table->integer('weight');
@@ -42,10 +42,6 @@ class CreateEscortsTable extends Migration
             $table->text('description');
             $table->integer('status');
             $table->longText('photo_1')->nullable();
-            $table->longText('photo_2')->nullable();
-            $table->longText('photo_3')->nullable();
-            $table->longText('photo_4')->nullable();
-            $table->longText('photo_5')->nullable();
 
             $table->timestamps();
         });

@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('escort.index') }}">
                     <img src="{{asset('/image/nav-brand-logo.png')}}" alt="Brand">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,6 +36,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+
+                      @guest
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{route('escort.index')}}">Home</a>
+                        </li>
+                        @else
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('escort.index')}}">Home</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                              <a rel="nofollow" class="nav-link dropdown-toggle" href="#" id="dropdown_dashboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Panel Administrativo
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a rel="nofollow" href="{{route('dashboard.plan.index')}}" class="dropdown-item">Planes</a>
+                                <a rel="nofollow" href="{{route('dashboard.escort.dashboard')}}" class="dropdown-item">Escorts</a>
+                                <div class="dropdown-divider"></div>
+                              </div>
+                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Publish Yourself !</a>
+                          </li>
+                      @endguest
 
                     </ul>
 
@@ -50,12 +73,9 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
-                          <li class="nav-item">
-                            <a href="{{route('dashboard.plan.pickplan')}}">Publish Yourself !</a>
-                          </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name }} <span class="caret"></span>
+                                    {{ Auth::user()->email }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
