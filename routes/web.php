@@ -19,17 +19,6 @@ Route::get('/pickaplan', 'PlanController@pickplan')->name('dashboard.plan.pickpl
 Route::group([
   'prefix' => 'dashboard'
 ], function(){
-  //Country Routes
-  Route::group([
-    'prefix' => 'country'
-  ], function(){
-      //index all countries
-      Route::get('/', 'CountryController@index')->name('dashboard.country.index');
-      //store a country
-      Route::post('/store', 'CountryController@store')->name('dashboard.country.store');
-      //update a Country
-      Route::post('/update/{id}', 'CountryController@update')->name('dashboard.country.update');
-  });
   //State routes
   Route::group([
     'prefix' => 'state'
@@ -37,9 +26,11 @@ Route::group([
     //index all state
     Route::get('/', 'StateController@index')->name('dashboard.state.index');
     //store a state
-    Route::post('/store', 'StateController@store')->name('dashboard.state.store');
+    Route::post('/store', 'StateController@store')->name('state.store');
     //update a state
-    Route::post('/update/{id}', 'StateController@update')->name('dashboard.state.update');
+    Route::post('/update/{id}', 'StateController@update')->name('state.update');
+    // delete a state
+    Route::get('/delete/{id}', 'StateController@delete')->name('state.delete');
   });
   // Plan routes
   Route::group([
@@ -65,6 +56,19 @@ Route::group([
     // edit status of a escort
     Route::post('/update/{id}', 'EscortController@admin_update')->name('escort.admin_update');
   });
+  // Country route
+  Route::group([
+    'prefix' => 'country'
+  ], function(){
+    //index all countries
+    Route::get('/', 'CountryController@index')->name('dashboard.country.index');
+    //Add new country
+    Route::post('/store', 'CountryController@store')->name('country.store');
+    //Edit a country
+    Route::post('/edit/{id}', 'CountryController@update')->name('country.update');
+    //Delete a country
+    Route::get('/delete/{id}', 'CountryController@delete')->name('country.delete');
+  });
 });
 
 Route::group([
@@ -80,6 +84,14 @@ Route::group([
   Route::post('/update/{id}', 'EscortController@update')->name('escort.update');
   //detail a escort
   Route::get('/show/{id}', 'EscortController@show')->name('escort.show');
+});
+
+Route::group([
+  'prefix' => 'vue'
+], function(){
+  // countries
+  Route::get('/countries', 'VueController@countries');
+  Route::get('/states', 'VueController@states');
 });
 
 Auth::routes();

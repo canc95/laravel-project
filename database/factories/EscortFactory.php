@@ -1,22 +1,26 @@
 <?php
 
 use App\Models\Plan;
+use App\Models\State;
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\Escort::class, function (Faker $faker) {
 
     $plan   = count(Plan::get());
+    $state  = count(State::get());
     return [
         'plan_id'=> rand(1, $plan),
+        'state_id'=> rand(1, $state),
         'first_name' => $faker->firstNameFemale,
         'last_name' => $faker->lastName,
         'age' => rand(18, 40),
+        'passport' => 'P'.$faker->numberBetween(100000000, 999999999),
         'birthday' => $faker->date,
         'gender' => 'female',
         'country' => 'US',
         'state' => $faker->state,
         'nationality' => 'American',
-        'height' => rand(1.35 , 1.80),
+        'height' => rand(135, 180),
         'eye_color' => $faker->colorName,
         'hair_color' => $faker->colorName,
         'weight' => rand(40, 65),

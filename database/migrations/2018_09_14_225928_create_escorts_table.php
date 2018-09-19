@@ -18,13 +18,16 @@ class CreateEscortsTable extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->integer('plan_id')->unsigned();
+            $table->integer('state_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
 
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('age');
+            $table->string('passport');
             $table->date('birthday');
             $table->string('gender');
             $table->string('country');

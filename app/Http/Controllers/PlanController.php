@@ -16,7 +16,7 @@ class PlanController extends Controller
 
   public function store(Request $request)
   {
-      $plan               = new Country();
+      $plan               = new Plan();
       $plan->name         = $request->name;
       $plan->description  = $request->description;
       $plan->duration     = $request->duration;
@@ -29,7 +29,7 @@ class PlanController extends Controller
 
   public function update(Request $request, $id)
   {
-      $plan               = Country::find($id);
+      $plan               = Plan::find($id);
       $plan->name         = $request->name;
       $plan->description  = $request->description;
       $plan->duration     = $request->duration;
@@ -39,9 +39,9 @@ class PlanController extends Controller
         ->route('dashboard.plan.index');
   }
 
-  public function destroy($id)
+  public function delete($id)
   {
-      $plan = Country::find($id);
+      $plan = Plan::find($id);
       $plan->delete();
       return redirect()
         ->route('dashboard.plan.index');

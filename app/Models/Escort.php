@@ -13,6 +13,7 @@ class Escort extends Model implements HasMedia
       'first_name',
       'last_name',
       'age',
+      'passport',
       'birthday',
       'gender',
       'country',
@@ -42,5 +43,9 @@ class Escort extends Model implements HasMedia
   public function plan()
   {
     return $this->belongsTo('App\Models\Plan');
+  }
+  public function state()
+  {
+    return $this->belongsTo('App\Models\Country');
   }
 }

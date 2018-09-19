@@ -38,20 +38,17 @@
                     <ul class="navbar-nav mr-auto">
 
                       @guest
-                        <li class="nav-item">
-                          <a class="nav-link" href="{{route('escort.index')}}">Home</a>
-                        </li>
+
                         @else
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{route('escort.index')}}">Home</a>
-                          </li>
                           <li class="nav-item dropdown">
                               <a rel="nofollow" class="nav-link dropdown-toggle" href="#" id="dropdown_dashboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Panel Administrativo
+                                Dashboard
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a rel="nofollow" href="{{route('dashboard.plan.index')}}" class="dropdown-item">Planes</a>
+                                <a rel="nofollow" href="{{route('dashboard.plan.index')}}" class="dropdown-item">Plans</a>
                                 <a rel="nofollow" href="{{route('dashboard.escort.dashboard')}}" class="dropdown-item">Escorts</a>
+                                <a rel="nofollow" href="{{route('dashboard.country.index')}}" class="dropdown-item">Countries</a>
+                                <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item">States</a>
                                 <div class="dropdown-divider"></div>
                               </div>
                             </li>

@@ -3,7 +3,7 @@
 
   <div class="container">
     <a href="#" class="btn btn-primary btn-block mb-4">New</a>
-    <table class="table table-striped table-hover table-bordered">
+    <table class="table table-striped table-hover table-bordered" style="width:100">
       <thead>
         <tr>
           <th class="text-center">Name</th>

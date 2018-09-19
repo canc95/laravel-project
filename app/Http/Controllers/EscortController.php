@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Escort;
+use App\Models\Country;
 use App\User;
 use App\Models\Multimedia;
 use Storage;
@@ -10,6 +11,8 @@ use Image;
 use Input;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class EscortController extends Controller
 {
@@ -30,9 +33,11 @@ class EscortController extends Controller
         $escort               = new Escort();
         $escort->user_id      = User::orderBy('id', 'desc')->first()->id;
         $escort->plan_id      = '2';
+        $escort->country_id   = $request->country_id;
         $escort->first_name   = $request->first_name;
         $escort->last_name    = $request->last_name;
-        $escort->age          = $request->age;
+        $escort->age          = $request->$birthday->diffInYears(Carbon::now());
+        $escort->passport     = $request->passport;
         $escort->birthday     = $request->birthday;
         $escort->gender       = $request->gender;
         $escort->country      = $request->country;
@@ -103,7 +108,8 @@ class EscortController extends Controller
       $escort               = Escort::find($id);
       $escort->first_name   = $request->first_name;
       $escort->last_name    = $request->last_name;
-      $escort->age          = $request->age;
+      $escort->age          = $request->$birthday->diffInYears(Carbon::now());
+      $escort->passport     = $request->passport;
       $escort->birthday     = $request->birthday;
       $escort->country      = $request->country;
       $escort->state        = $request->state;
@@ -167,7 +173,7 @@ class EscortController extends Controller
       $escort          = Escort::find($id);
       $escort->status = $request->status;
       $escort->save();
-      
+
       return redirect()
         ->route('dashboard.escort.dashboard');
     }
