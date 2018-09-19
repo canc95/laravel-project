@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Escort;
-use App\Models\Country;
-use App\User;
 use App\Models\Multimedia;
 use Storage;
 use Image;

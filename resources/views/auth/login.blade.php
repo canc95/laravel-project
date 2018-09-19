@@ -61,11 +61,14 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
+<<<<<<< HEAD
                             <div class="col-md-8 offset-md-3 mt-3 text-uppercase">
                               <a href="{{ route('register') }}" class="btn btn-link">
                                 {{ __('Do you not have Account?') }}
                               </a>
                             </div>
+=======
+>>>>>>> 73c5981f0dd9923eb1a3d3503714328039bb99da
                         </div>
                     </form>
                 </div>

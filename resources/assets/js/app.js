@@ -15,8 +15,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+<<<<<<< HEAD
  Vue.component('filter-escort', require('./components/filter.vue'));
 Vue.component('country-state', require('./components/countryState.vue'));
+=======
+Vue.component('filter-escort', require('./components/filter.vue'));
+>>>>>>> 73c5981f0dd9923eb1a3d3503714328039bb99da
 
 const app = new Vue({
     el: '#app'

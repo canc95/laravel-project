@@ -156,7 +156,7 @@
               </div>
             </div>
             <hr>
-            <p class="text-center font-weight-bold text-uppercase">Photos</p>            
+            <p class="text-center font-weight-bold text-uppercase">Photos</p>
             <div class="form-row mt-3">
               <div class="col-md-6">
                 <div class="custom-file">

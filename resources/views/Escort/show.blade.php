@@ -51,7 +51,6 @@
                       <img src="{{ asset("/storage/images/{$multimedia->path}") }}" class="profile-photo" alt="">
                     @endforeach
                   </div>
-              @endguest
             </div>
           </div>
         </div>
