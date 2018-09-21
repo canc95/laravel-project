@@ -75,9 +75,9 @@ Route::group([
   'prefix' => 'escort'
 ], function(){
   //create escort
-  Route::get('/create', 'EscortController@create')->name('escort.create');
+  Route::get('/create/{id}', 'EscortController@create')->name('escort.create');
   //store a escort
-  Route::post('/store', 'EscortController@store')->name('escort.store');
+  Route::post('/store/{id}', 'EscortController@store')->name('escort.store');
   //edit escort
   Route::get('/edit/{id}', 'EscortController@edit')->name('escort.edit');
   //update a escort

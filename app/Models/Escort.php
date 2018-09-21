@@ -44,11 +44,8 @@ class Escort extends Model implements HasMedia
   {
     return $this->belongsTo('App\Models\Plan');
   }
-<<<<<<< HEAD
   public function state()
   {
-    return $this->belongsTo('App\Models\Country');
+    return $this->belongsTo('App\Models\State');
   }
-=======
->>>>>>> 73c5981f0dd9923eb1a3d3503714328039bb99da
 }

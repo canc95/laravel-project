@@ -28,7 +28,7 @@
                 @endguest
               </div>
               <div class="col-md-6 mt-3">
-                <p class="text-center text-dark"><i class="fas fa-female"></i>, <i class="fas fa-globe"></i> <strong class="font-weight-bold text-capitalize">{{$escort->country}}, {{$escort->state}}</strong></p>
+                <p class="text-center text-dark"><i class="fas fa-female"></i>, <i class="fas fa-globe"></i> <strong class="font-weight-bold text-capitalize">{{$escort->state->country->country_name}}, {{$escort->state->name}}, {{$escort->nationality}}</strong></p>
                 <p class="text-center text-dark"><i class="far fa-eye"></i> <strong>{{$escort->eye_color}}</strong></p>
                 <p class="text-center text-dark"><strong>Hair Color {{$escort->hair_color}}</strong></p>
               </div>
@@ -51,6 +51,7 @@
                       <img src="{{ asset("/storage/images/{$multimedia->path}") }}" class="profile-photo" alt="">
                     @endforeach
                   </div>
+              @endguest
             </div>
           </div>
         </div>

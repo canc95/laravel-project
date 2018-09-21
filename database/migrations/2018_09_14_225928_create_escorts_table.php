@@ -31,7 +31,6 @@ class CreateEscortsTable extends Migration
             $table->date('birthday');
             $table->string('gender');
             $table->string('country');
-            $table->string('state');
             $table->string('nationality');
             $table->integer('height');
             $table->string('eye_color');

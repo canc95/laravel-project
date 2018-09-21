@@ -46,8 +46,15 @@
             <div class="col-md-4 mt-3">
               <div class="card no-border">
                 <div class="card-body no-padding">
-                  <img class="card-img-top img-fluid" src="{{ asset('/storage/escorts/photos/'. $escort->photo_1) }}" alt="Imagen perfil del escort">
-                </div>
+                  <a href="{{route('escort.show', $escort->id)}}">
+                    <img class="card-img-top img-fluid" src="{{ asset('/storage/escorts/photos/'. $escort->photo_1) }}" alt="Imagen perfil del escort">
+                    <div class="profile-hovered text-center ">
+                      <h3 class="text-white">{{$escort->first_name}}</h3>
+                      <h4 class="text-white">{{$escort->state->name}}</h4>
+                      <h5 class="text-danger">{{$escort->age}}</h5>
+                    </div>
+                  </div>
+                  </a>
                 <div class="card-footer">
                   <h3 class="text-center">
                     <a href="{{route('escort.show', $escort->id)}}">

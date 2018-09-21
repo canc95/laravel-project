@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Escort;
+use App\Models\State;
+use App\Models\Plan;
 use App\Models\Multimedia;
 use Storage;
 use Image;
@@ -21,25 +23,27 @@ class EscortController extends Controller
         return view ('escort.index', compact('escorts'));
     }
 
-    public function create()
+    public function create($id)
     {
-        return view ('escort.create');
+        $plan = Plan::find($id);
+        return view ('escort.create', compact('plan'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        $plan                 = Plan::find($id);
         $escort               = new Escort();
         $escort->user_id      = User::orderBy('id', 'desc')->first()->id;
-        $escort->plan_id      = '2';
+        $escort->plan_id      = $request->plan_id;
         $escort->country_id   = $request->country_id;
         $escort->first_name   = $request->first_name;
         $escort->last_name    = $request->last_name;
-        $escort->age          = $request->$birthday->diffInYears(Carbon::now());
+        $birthday             = new Carbon ($request->birthday);
+        $escort->age          = $request->$birthday == null ? $birthday->diffInYears(Carbon::now()):$request->age;
         $escort->passport     = $request->passport;
         $escort->birthday     = $request->birthday;
         $escort->gender       = $request->gender;
         $escort->country      = $request->country;
-        $escort->state        = $request->state;
         $escort->nationality  = $request->nationality;
         $escort->height       = $request->height;
         $escort->eye_color    = $request->eye_color;
@@ -91,8 +95,9 @@ class EscortController extends Controller
     public function show($id)
     {
         $escort = Escort::find($id);
+        $state  = State::get();
         $escort->load('multimedias');
-        return view ('escort.show', compact('escort'));
+        return view ('escort.show', compact('escort', 'state'));
     }
 
     public function edit($id)
@@ -106,11 +111,11 @@ class EscortController extends Controller
       $escort               = Escort::find($id);
       $escort->first_name   = $request->first_name;
       $escort->last_name    = $request->last_name;
-      $escort->age          = $request->$birthday->diffInYears(Carbon::now());
+      $birthday             = new Carbon ($request->birthday);
+      $escort->age          = $request->$birthday == null ? $birthday->diffInYears(Carbon::now()):$request->age;
       $escort->passport     = $request->passport;
       $escort->birthday     = $request->birthday;
       $escort->country      = $request->country;
-      $escort->state        = $request->state;
       $escort->gender       = $request->gender;
       $escort->nationality  = $request->nationality;
       $escort->height       = $request->height;
@@ -134,22 +139,22 @@ class EscortController extends Controller
         $escort->photo_1     = $photo_1;
       }
 
-      $photos = $request->file('photos_extras');
+      if ($request->hasFile('photos_extras')) {
+        foreach ($photos as $file) {
 
-      foreach ($photos as $file) {
+          $name = $file ->getClientOriginalName();
+          $name = strtolower(str_replace(' ', '', $name));
+          $path = $file->hashName();
+          $photo = Image::make($file);
 
-        $name = $file ->getClientOriginalName();
-        $name = strtolower(str_replace(' ', '', $name));
-        $path = $file->hashName();
-        $photo = Image::make($file);
+          Storage::put("/public/images/{$path}", (string) $photo->encode());
 
-        Storage::put("/public/images/{$path}", (string) $photo->encode());
-
-        $multimedia = new Multimedia;
-        $multimedia->name      = $name;
-        $multimedia->path      = $path;
-        $multimedia->escort_id = $id;
-        $multimedia->save();
+          $multimedia = new Multimedia;
+          $multimedia->name      = $name;
+          $multimedia->path      = $path;
+          $multimedia->escort_id = $id;
+          $multimedia->save();
+        }
       }
 
       $escort->save();

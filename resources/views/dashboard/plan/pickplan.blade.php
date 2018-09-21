@@ -37,7 +37,7 @@
                     </div>
                   </div>
                   <div class="card-footer text-center">
-                    <a href="{{route('escort.create')}}" class="btn btn-outline-primary btn-block">Select</a>
+                    <a href="{{route('escort.create', $plan->id)}}" class="btn btn-outline-primary btn-block">Select</a>
                   </div>
                 </div>
               </div>

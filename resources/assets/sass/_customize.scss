@@ -42,3 +42,19 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+.profile-hovered{
+  transition: all 1.5s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 145px;
+  opacity: 0
+}
+
+.profile-hovered:hover{
+  opacity: 1;
+}

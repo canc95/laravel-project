@@ -8,9 +8,10 @@
           Complete your profile
         </div>
         <div class="card-body no-padding">
-          <form action="{{route('escort.store')}}" method="post" enctype="multipart/form-data">
+          <form action="{{route('escort.store', $plan->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-row">
+              <input type="hidden" name="plan_id" value="{{$plan->id}}">
               <div class="col-md-12">
                 <p class="text-center font-weight-bold text-uppercase">Personal information</p>
                 <div class="input-group">
@@ -26,10 +27,10 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="form-group">
-                  <label>Age</label>
-                  <input type="number" name="age" class="form-control">
+                  <label>Passport</label>
+                  <input type="text" name="passport" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
@@ -50,7 +51,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label>phone</label>
                   <input type="text" name="phone" class="form-control">
@@ -128,14 +129,11 @@
                   <input type="file" class="custom-file-input" name="photo_1">
                   <label class="custom-file-label">Profile Photo</label>
                 </div>
-
               </div>
               <div class="col-md-6">
                 <input type="file" class="custom-file-input" name="photos_extras[]" multiple>
                 <label class="custom-file-label">Aditional Photos</label>
               </div>
-            </div>
-            <div class="form-row mt-3">
             </div>
             <div class="col-md-12 text-center mt-5">
               <button type="submit" class="btn btn-outline-primary btn-block" name="button">Aceptar</button>

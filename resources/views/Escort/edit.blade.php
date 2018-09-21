@@ -26,10 +26,10 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="form-group">
-                  <label>Age</label>
-                  <input type="number" name="age" value="{{$escort->age}}" class="form-control">
+                  <label>Passport</label>
+                  <input type="text" name="passport" value="{{$escort->passport}}" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
@@ -65,7 +65,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label>phone</label>
                   <input type="text" name="phone" value="{{$escort->phone}}" class="form-control">
@@ -74,26 +74,7 @@
             </div>
             <hr>
             <p class="text-center font-weight-bold text-uppercase">Where are you from?</p>
-            <div class="form-row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Country</label>
-                  <input type="text" name="country" value="{{$escort->country}}" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>State / Province / City</label>
-                  <input type="text" name="state" value="{{$escort->state}}" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Nationality</label>
-                  <input type="text" name="nationality" value="{{$escort->nationality}}" class="form-control">
-                </div>
-              </div>
-            </div>
+            <country-state></country-state>
             <hr>
             <p class="text-center font-weight-bold text-uppercase">About your body</p>
             <div class="form-row">
