@@ -13,6 +13,7 @@ $factory->define(App\Models\Escort::class, function (Faker $faker) {
         'state_id'=> rand(1, $state),
         'first_name' => $faker->firstNameFemale,
         'last_name' => $faker->lastName,
+        'age' => rand(18, 35),
         'passport' => 'P'.$faker->numberBetween(100000000, 999999999),
         'birthday' => $faker->date,
         'gender' => 'female',

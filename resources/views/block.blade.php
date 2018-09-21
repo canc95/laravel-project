@@ -26,25 +26,15 @@
   <img src="{{asset('/image/nav-brand-logo.png')}}" class="img-fluid p-3">
   <div class="container mt-5">
     <div class="card text-center">
-      <div class="card-header"><h1>Do you have 18 years old or more?</h1></div>
+      <div class="card-header"><h1>Are you at least 18 years old?</h1></div>
       <div class="card-body">
         <ul>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
-          <li>terms</li>
           <li>terms</li>
         </ul>
       </div>
       <div class="card-footer">
-        <a href="https://google.com" class="btn btn-outline-primary">NO, I NOT HAVE</a>
-        <a href="{{route('escort.index')}}" class="btn btn-outline-primary">YES, I HAVE</a>
+        <a href="{{route('escort.index')}}" class="btn btn-outline-primary">Yes I am</a>
+        <a href="{{route('block')}}" class="btn btn-outline-primary">No, I am not</a>
       </div>
     </div>
   </div>

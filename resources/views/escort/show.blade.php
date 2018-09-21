@@ -22,7 +22,7 @@
               <div class="col-md-12">
                 <h5 class="text-uppercase text-danger text-center">{{$escort->service}}</h5>
                 @guest
-                  <h6 class="text-uppercase text-center"><a href="{{ route('login') }}" class="nav-link"> <span class="text-uppercase text-danger"><u class="font-weight-bold">Sign in</u></span></a> for see the contact number</h6>
+                  <h6 class="text-uppercase text-center"><a href="{{ route('login') }}" class="nav-link"> <span class="text-uppercase text-danger"><u class="font-weight-bold">Sign in</u></span></a> to see the contact number</h6>
                   @else
                     <h6 class="text-uppercase text-center mt-3"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h6>
                 @endguest
