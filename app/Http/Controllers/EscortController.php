@@ -13,14 +13,55 @@ use Input;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class EscortController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $escorts   = Escort::orderBy('id', 'asc')->paginate(9);
+
+        $sorters = [
+            'age',
+        ];
+
+        $ranges = [
+            'height',
+        ];
+
+        $filters = [
+            'gender', 'eye_color',
+        ];
+
+        $escorts = Escort::get();
+
+        if(count($request->all()) > 0) {
+            foreach ($filters as $filter) {
+                if (array_has($request->all(), $filter)) {
+                    $escorts = $escorts->where($filter, $request[$filter]);
+                }
+            }
+            foreach ($sorters as $sorter) {
+                if (array_has($request->all(), $sorter)) {
+                    $escorts = $request[$sorter] == 'DESC' ? $escorts->sortByDesc($sorter) : $escorts->sortBy($sorter);
+                }
+            }
+            foreach ($ranges as $range) {
+                if (array_has($request->all(), $range)) {
+                    $values = explode(',', $request[$range]);
+                    $min = $values[0];
+                    $max = $values[1];
+                    $escorts = $escorts->where($range, '>=', $min);
+                    $escorts = $escorts->where($range, '<=', $max);
+                }
+            }
+            $escorts = $this->custom_paginate($escorts, 10);
+        } else {
+            $escorts = Escort::paginate(10);
+        }
+
         return view ('escort.index', compact('escorts'));
     }
 
@@ -72,7 +113,7 @@ class EscortController extends Controller
         if ($request->hasFile('photos_extras')) {
 
           $photos = $request->file('photos_extras');
-          
+
           foreach ($photos as $file) {
 
             $name = $file ->getClientOriginalName();
@@ -190,5 +231,12 @@ class EscortController extends Controller
     {
       $escorts = Escort::orderBy('id', 'ASC')->paginate(7);
       return view ('dashboard.escort.dashboard', compact('escorts'));
+    }
+
+    private function custom_paginate($items, $perPage = 15, $page = null, $options = [])
+    {
+    	$page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+    	$items = $items instanceof Collection ? $items : Collection::make($items);
+    	return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }
