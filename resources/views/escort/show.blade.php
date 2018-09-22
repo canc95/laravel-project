@@ -14,15 +14,15 @@
             <h4 class="text-white">{{ $escort->first_name }} {{ $escort->last_name }} <span class="text-danger">{{ $escort->age }}</span></h4>
             @guest
               @else
-                <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span>e</a>
+                <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span></a>
             @endguest
           </div>
-          <div class="card-body no-border no-padding pt-5">
+          <div class="card-body no-border no-padding pt-4">
             <div class="row">
               <div class="col-md-12">
                 <h5 class="text-uppercase text-danger text-center">{{$escort->service}}</h5>
                 @guest
-                  <h6 class="text-uppercase text-center"><a href="{{ route('login') }}" class="nav-link"> <span class="text-uppercase text-danger"><u class="font-weight-bold">Sign in</u></span></a> for see the contact number</h6>
+                  <h6 class="text-uppercase text-center"><a href="{{ route('login') }}" class="nav-link"> <span class="text-uppercase text-danger"><u class="font-weight-bold">Sign in</u></span></a> to see the contact number</h6>
                   @else
                     <h6 class="text-uppercase text-center mt-3"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h6>
                 @endguest
@@ -40,7 +40,7 @@
             </div>
             <div class="row">
               @guest
-                <div class="col flex-photos pt-3 pb-2">
+                <div class="col flex-photos pt-1 pb-2">
                   @foreach ($escort->multimedias as $multimedia)
                     <img src="{{ asset("/storage/images/{$multimedia->path}") }}" class="profile-photo" alt="">
                   @endforeach

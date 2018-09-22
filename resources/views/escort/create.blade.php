@@ -134,6 +134,7 @@
                 <input type="file" class="custom-file-input" name="photos_extras[]" multiple>
                 <label class="custom-file-label">Aditional Photos</label>
               </div>
+              <input type="hidden" name="status" value="0">
             </div>
             <div class="col-md-12 text-center mt-5">
               <button type="submit" class="btn btn-outline-primary btn-block" name="button">Aceptar</button>

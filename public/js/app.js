@@ -47382,6 +47382,11 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 42 */
@@ -47399,68 +47404,76 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card border-danger" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Age")
-            ]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Descendent")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Ascendent")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Gender")
-            ]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Female")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Male")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Transexual")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Other")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Nationality")
-            ]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1,40 - 1,49")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1,50 - 1,59")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1,60 - 1,69")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1,70 - 1,79")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("1,80 - 1,89")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Eyes Color")
-            ]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Green")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Blue")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Black")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Brown")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Yellow")])
+      _c("form", [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { selected: "", disabled: "" } }, [
+                _vm._v("Age")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Descendent")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Ascendent")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { selected: "", disabled: "" } }, [
+                _vm._v("Gender")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Female")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Male")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Transexual")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Other")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { selected: "", disabled: "" } }, [
+                _vm._v("Nationality")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1,40 - 1,49")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1,50 - 1,59")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1,60 - 1,69")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1,70 - 1,79")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1,80 - 1,89")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { selected: "", disabled: "" } }, [
+                _vm._v("Eyes Color")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Green")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Blue")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Black")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Brown")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Yellow")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("button", { staticClass: "btn btn-block btn-primary" }, [
+              _vm._v("Search")
+            ])
           ])
         ])
       ])

@@ -8,6 +8,7 @@ use App\Models\Plan;
 use App\Models\Multimedia;
 use Storage;
 use Image;
+use Auth;
 use Input;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
@@ -33,9 +34,9 @@ class EscortController extends Controller
     {
         $plan                 = Plan::find($id);
         $escort               = new Escort();
-        $escort->user_id      = User::orderBy('id', 'desc')->first()->id;
+        $escort->user_id      = Auth::user()->id;
         $escort->plan_id      = $request->plan_id;
-        $escort->country_id   = $request->country_id;
+        $escort->state_id     = $request->state_id;
         $escort->first_name   = $request->first_name;
         $escort->last_name    = $request->last_name;
         $birthday             = new Carbon ($request->birthday);
@@ -69,6 +70,9 @@ class EscortController extends Controller
         $id              = $escort->id;
 
         if ($request->hasFile('photos_extras')) {
+
+          $photos = $request->file('photos_extras');
+          
           foreach ($photos as $file) {
 
             $name = $file ->getClientOriginalName();
@@ -109,6 +113,7 @@ class EscortController extends Controller
     public function update(Request $request, $id)
     {
       $escort               = Escort::find($id);
+      $escort->state_id     = $request->state_id;
       $escort->first_name   = $request->first_name;
       $escort->last_name    = $request->last_name;
       $birthday             = new Carbon ($request->birthday);
