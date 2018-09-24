@@ -117,8 +117,14 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Hair Color</label>
-                  <input type="text" name="hair_color" value="{{$escort->hair_color}}" class="form-control">
+                  <select class="form-control" name="hair_color">
+                    <option selected disabled>Hair Color</option>
+                    <option>Black</option>
+                    <option>Blonde</option>
+                    <option>Brown</option>
+                    <option>Redhead</option>
+                    <option>Others</option>
+                  </select>
                 </div>
               </div>
             </div>

@@ -18,11 +18,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">First Name</span>
                   </div>
-                  <input type="text" aria-label="First name" class="form-control" name="first_name">
+                  <input type="text" aria-label="First name" class="form-control" name="first_name" required>
                   <div class="input-group-append">
                     <span class="input-group-text">Last Name</span>
                   </div>
-                  <input type="text" aria-label="Last name" class="form-control" name="last_name">
+                  <input type="text" aria-label="Last name" class="form-control" name="last_name" required>
                 </div>
               </div>
             </div>
@@ -30,19 +30,19 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Passport</label>
-                  <input type="text" name="passport" class="form-control">
+                  <input type="text" name="passport" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Birthday</label>
-                  <input type="date" name="birthday" class="form-control">
+                  <input type="date" name="birthday" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Gender</label>
-                  <select class="form-control" name="gender">
+                  <select class="form-control" name="gender" required>
                     <option disabled selected>Select...</option>
                     <option>Female</option>
                     <option>Male</option>
@@ -54,7 +54,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label>phone</label>
-                  <input type="text" name="phone" class="form-control">
+                  <input type="text" name="phone" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -67,22 +67,22 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Weight</label>
-                  <input type="number" name="weight" class="form-control">
+                  <input type="number" name="weight" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="form-row">
                   <div class="col-md-4">
                     <label>Breast</label>
-                    <input type="number" name="breast" class="form-control">
+                    <input type="number" name="breast" class="form-control" required>
                   </div>
                   <div class="col-md-4">
                     <label>Waist</label>
-                    <input type="number" name="waist" class="form-control">
+                    <input type="number" name="waist" class="form-control" required>
                   </div>
                   <div class="col-md-4">
                     <label>Hip</label>
-                    <input type="number" name="hip" class="form-control">
+                    <input type="number" name="hip" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -91,19 +91,25 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Height</label>
-                  <input type="number" name="height" class="form-control">
+                  <input type="number" name="height" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Eyes Color</label>
-                  <input type="text" name="eye_color" class="form-control">
+                  <input type="text" name="eye_color" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Hair Color</label>
-                  <input type="text" name="hair_color" class="form-control">
+                  <select class="form-control" name="hair_color" required>
+                    <option selected disabled>Hair Color</option>
+                    <option>Black</option>
+                    <option>Blonde</option>
+                    <option>Brown</option>
+                    <option>Redhead</option>
+                    <option>Others</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -113,12 +119,12 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Service</label>
-                  <input type="text" name="service" class="form-control">
+                  <input type="text" name="service" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-8">
                 <label>About me</label>
-                <textarea name="description" rows="3" style="resize:none;" class="form-control"></textarea>
+                <textarea name="description" rows="3" style="resize:none;" class="form-control" required></textarea>
               </div>
             </div>
             <hr>

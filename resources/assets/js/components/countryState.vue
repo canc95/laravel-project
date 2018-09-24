@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="form-row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label>Country</label>
         <select class="form-control" name="country" @change="pickCountry" v-model="currentCountry">
@@ -8,7 +8,7 @@
         </select>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label>State / Province / City</label>
         <select class="form-control" name="state_id">
@@ -16,10 +16,25 @@
         </select>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
         <label>Nationality</label>
         <input type="text" name="nationality" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label>Etnia</label>
+        <select class="form-control" name="etnia">
+          <option selected disabled>Etnia</option>
+          <option>Caucasian</option>
+          <option>Black</option>
+          <option>Asian</option>
+          <option>Latin</option>
+          <option>Hindu</option>
+          <option>Arab</option>
+          <option>Mixed Race</option>
+        </select>
       </div>
     </div>
   </div>

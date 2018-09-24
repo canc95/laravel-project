@@ -87,6 +87,7 @@ class EscortController extends Controller
         $escort->gender       = $request->gender;
         $escort->country      = $request->country;
         $escort->nationality  = $request->nationality;
+        $escort->etnia        = $request->etnia;
         $escort->height       = $request->height;
         $escort->eye_color    = $request->eye_color;
         $escort->hair_color   = $request->hair_color;
@@ -164,6 +165,7 @@ class EscortController extends Controller
       $escort->country      = $request->country;
       $escort->gender       = $request->gender;
       $escort->nationality  = $request->nationality;
+      $escort->etnia        = $request->etnia;
       $escort->height       = $request->height;
       $escort->eye_color    = $request->eye_color;
       $escort->hair_color   = $request->hair_color;

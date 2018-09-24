@@ -19,6 +19,7 @@ class Escort extends Model implements HasMedia
       'country',
       'state',
       'nationality',
+      'etnia',
       'height',
       'eye_color',
       'hair_color',

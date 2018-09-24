@@ -19,9 +19,10 @@ $factory->define(App\Models\Escort::class, function (Faker $faker) {
         'gender' => $faker->randomElement(['Female', 'Male', 'Transexual', 'Other']),
         'country' => 'US',
         'nationality' => 'American',
+        'etnia' => $faker->randomElement(['Caucasian', 'Black', 'Latin', 'Asian'])
         'height' => rand(135, 180),
         'eye_color' => $faker->randomElement(['Green', 'Blue', 'Black', 'Brown', 'Yellow']),
-        'hair_color' => $faker->colorName,
+        'hair_color' => $faker->randomElement(['Blonde', 'Black', 'Brown', 'Redhead']),
         'weight' => rand(40, 65),
         'breast' => '95',
         'waist' => '60',

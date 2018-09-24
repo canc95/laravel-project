@@ -92,6 +92,7 @@ Route::group([
   // countries
   Route::get('/countries', 'VueController@countries');
   Route::get('/states', 'VueController@states');
+  Route::get('/escorts', 'VueController@escorts');
 });
 
 Auth::routes();
