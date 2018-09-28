@@ -39,9 +39,9 @@ Route::group([
     //index all plans
     Route::get('/', 'PlanController@index')->name('dashboard.plan.index');
     //store a plan
-    Route::post('/store', 'PlanController@store')->name('dashboard.plan.store');
+    Route::post('/store', 'PlanController@store')->name('plan.store');
     //update a plan
-    Route::post('/update/{id}', 'PlanController@update')->name('dashboard.plan.update');
+    Route::post('/update/{id}', 'PlanController@update')->name('plan.update');
     //delete a plan
     Route::get('/plan/delete/{id}', 'PlanController@delete')->name('plan.delete');
   });

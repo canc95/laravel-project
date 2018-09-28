@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                   <label>Country Name</label>
-                  <input type="text" name="country_name" value="{{$country->country_name}}" class="form-control">
+                  <input type="text" name="country_name" pattern="[a-zA-Z]+" value="{{$country->country_name}}" class="form-control">
                 </div>
                 <div class="form-group text-center">
                   <input type="submit" class="btn btn-outline-primary" value="Aceptar">
@@ -95,7 +95,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Edit {{$country->country_name}}</h5>
+            <h5 class="modal-title">New Country</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -117,7 +117,7 @@
               </div>
               <div class="form-group">
                 <label>Country Name</label>
-                <input type="text" name="country_name" class="form-control">
+                <input type="text" name="country_name" pattern="[a-zA-Z]+" required class="form-control">
               </div>
               <div class="form-group text-center">
                 <input type="submit" class="btn btn-outline-primary" value="Aceptar">
