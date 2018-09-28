@@ -18,11 +18,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">First Name</span>
                   </div>
-                  <input type="text" aria-label="First name" class="form-control" name="first_name" required>
+                  <input type="text" aria-label="First name" pattern="[a-zA-Z]+" min="2" class="form-control" name="first_name" required>
                   <div class="input-group-append">
                     <span class="input-group-text">Last Name</span>
                   </div>
-                  <input type="text" aria-label="Last name" class="form-control" name="last_name" required>
+                  <input type="text" aria-label="Last name" pattern="[a-zA-Z]+" min="2" class="form-control" name="last_name" required>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Birthday</label>
-                  <input type="date" name="birthday" class="form-control" required>
+                  <input type="date" name="birthday" max="2000-12-31" value="2000-12-31" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-3">
@@ -67,22 +67,22 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Weight</label>
-                  <input type="number" name="weight" class="form-control" required>
+                  <input type="number" name="weight" pattern= "[0-9]" max="150" min="30" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="form-row">
                   <div class="col-md-4">
                     <label>Breast</label>
-                    <input type="number" name="breast" class="form-control" required>
+                    <input type="number" name="breast" pattern= "[0-9]" max="100" min="20" class="form-control" required>
                   </div>
                   <div class="col-md-4">
                     <label>Waist</label>
-                    <input type="number" name="waist" class="form-control" required>
+                    <input type="number" name="waist" pattern= "[0-9]" max="100" min="20" class="form-control" required>
                   </div>
                   <div class="col-md-4">
                     <label>Hip</label>
-                    <input type="number" name="hip" class="form-control" required>
+                    <input type="number" name="hip" pattern= "[0-9]" max="100" min="20" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Height</label>
-                  <input type="number" name="height" class="form-control" required>
+                  <input type="number" name="height" pattern= "[0-9]" max="250" min="100" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
@@ -119,7 +119,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Service</label>
-                  <input type="text" name="service" class="form-control" required>
+                  <input type="text" name="service" pattern="[a-zA-Z]+" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-8">

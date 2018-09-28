@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
         'password' => bcrypt('secret'),
       ]);
 
-      factory(App\User::class, 20)->create()->each(function ($u) {
+      factory(App\User::class, 50)->create()->each(function ($u) {
            $u->escorts()->save(factory(App\Models\Escort::class)->make());
        });
     }

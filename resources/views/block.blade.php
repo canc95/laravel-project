@@ -34,7 +34,7 @@
       </div>
       <div class="card-footer">
         <a href="{{route('escort.index')}}" class="btn btn-outline-primary">Yes I am</a>
-        <a href="{{route('block')}}" class="btn btn-outline-primary">No, I am not</a>
+        <a href="https://www.google.com/" class="btn btn-outline-primary">No, I am not</a>
       </div>
     </div>
   </div>

@@ -33,41 +33,41 @@
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-3">
-            <select class="form-control" name="">
-              <option selected disabled  @change="sortByAge">Age</option>
-              <option>Descendent</option>
-              <option>Ascendent</option>
+            <select class="form-control" @change="sortAge" v-model="escortAge">
+              <option selected disabled>Age</option>
+              <option value="-1,1">Descendent</option>
+              <option value="1,-1">Ascendent</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-control" name="">
+            <select class="form-control" @change="sortByGender" v-model="currentGender">
               <option selected disabled>Gender</option>
-              <option>Female</option>
-              <option>Male</option>
-              <option>Transexual</option>
-              <option>Other</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Transexual">Transexual</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-control" name="">
+            <select class="form-control" @change="sortByEtnia" v-model="currentEtnia">
               <option selected disabled>Etnia</option>
-              <option>Caucasian</option>
-              <option>Black</option>
-              <option>Asian</option>
-              <option>Latin</option>
-              <option>Hindu</option>
-              <option>Arab</option>
-              <option>Mixed Race</option>
+              <option value="Caucasian">Caucasian</option>
+              <option value="Black">Black</option>
+              <option value="Asian">Asian</option>
+              <option value="Latin">Latin</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Arab">Arab</option>
+              <option value="Mixed_Race">Mixed Race</option>
             </select>
           </div>
           <div class="col-md-3">
-            <select class="form-control" name="">
+            <select class="form-control" @change="sortByHairColor" v-model="currentHairColor">
               <option selected disabled>Hair Color</option>
-              <option>Black</option>
-              <option>Blonde</option>
-              <option>Brown</option>
-              <option>Redhead</option>
-              <option>Others</option>
+              <option value="Black">Black</option>
+              <option value="Blonde">Blonde</option>
+              <option value="Brown">Brown</option>
+              <option value="Redhead">Redhead</option>
+              <option value="Others">Others</option>
             </select>
           </div>
         </div>
@@ -102,52 +102,56 @@ export default {
   data() {
     return {
       escorts : [],
-      escortAge: '',
-      currentGender: '',
-      currentEtnia: '',
-      currentHairColor: '',
+      escortAge: 'Age',
+      currentGender: 'Gender',
+      currentEtnia: 'Etnia',
+      currentHairColor: 'Hair Color',
       listEscortSortAge:[],
-      listEscortGender: [],
-      listEscortEtnia: [],
-      listEscortHairColor: []
+      defaultEscorts: []
     }
   },
   methods : {
     getEscorts(){
       axios.get('/vue/escorts').then(r => {
         this.escorts = r.data.escorts;
+        this.defaultEscorts = r.data.escorts;
       }). catch(e => {
         console.log(e);
       });
     },
-    sortByAge(){
-      this.escortAge = 0;
-      this.listEscortSortAge = [];
-
+    sortingFunction(fv, sv) {
+      function compare(a,b) {
+        if (a.age < b.age)
+          return fv;
+        if (a.age > b.age)
+          return sv;
+        return 0;
+      }
+      this.escorts.sort(compare);
     },
     sortByGender(){
-      this.listEscortGender = [];
-      for (var i = 0; i < this.escorts.length; i++) {
-        if (this.escorts[i].gender ==  this.currentGender) {
-          this.listEscortGender.push(this.escorts[i]);
-        }
-      }
+      this.escorts = this.defaultEscorts;
+      let escortsGender = this.escorts;
+      escortsGender = this.escorts.filter(escort => escort.gender == this.currentGender);
+      this.escorts = escortsGender;
     },
     sortByEtnia(){
-      this.listEscortEtnia = [];
-      for (var i = 0; i < this.escorts.length; i++) {
-        if (this.escorts[i].etnia == this.currentEtnia) {
-          this.listEscortEtnia.push(this.escorts[i]);
-        }
-      }
+      this.escorts = this.defaultEscorts;
+      let escortsEtnia = this.escorts.filter(escort => escort.etnia == this.currentEtnia);
+      this.escorts = escortsEtnia;
     },
     sortByHairColor(){
-      this.listEscortHairColor = [];
-      for (var i = 0; i < this.escorts.length; i++) {
-        if (this.escorts[i].hair_color == this.currentHairColor) {
-          this.listEscortHairColor.push(this.escorts[i]);
-        }
-      }
+      this.escorts = this.defaultEscorts;
+      let escortsHairColor = this.escorts.filter(escort => escort.hair_color == this.currentHairColor);
+      this.escorts = escortsHairColor;
+    }
+  },
+  computed:{
+    sortAge() {
+      this.listEscortSortAge = this.escortAge.split(',');
+      var firstValue = this.escortAge[0];
+      var secondValue = this.escortAge[1];
+      this.sortingFunction(firstValue, secondValue);
     }
   },
   created(){
