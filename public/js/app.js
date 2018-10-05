@@ -47447,10 +47447,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       escorts: [],
-      escortAge: 'Age',
-      currentGender: 'Gender',
+      escortAge: 'Eta',
+      currentGender: 'Genere',
       currentEtnia: 'Etnia',
-      currentHairColor: 'Hair Color',
+      currentHairColor: 'Colore dei capelli',
       listEscortSortAge: [],
       defaultEscorts: []
     };
@@ -47565,16 +47565,14 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Age")
+                  _vm._v("Eta")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "-1,1" } }, [
-                  _vm._v("Descendent")
+                  _vm._v("Discendente")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "1,-1" } }, [
-                  _vm._v("Ascendent")
-                ])
+                _c("option", { attrs: { value: "1,-1" } }, [_vm._v("Su")])
               ]
             )
           ]),
@@ -47613,20 +47611,20 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Gender")
+                  _vm._v("Genere")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Female" } }, [
-                  _vm._v("Female")
+                  _vm._v("Femmina")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Male" } }, [_vm._v("Male")]),
+                _c("option", { attrs: { value: "Male" } }, [_vm._v("Maschio")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Transexual" } }, [
-                  _vm._v("Transexual")
+                  _vm._v("Transessuale")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Other" } }, [_vm._v("Other")])
+                _c("option", { attrs: { value: "Other" } }, [_vm._v("Altro")])
               ]
             )
           ]),
@@ -47668,22 +47666,26 @@ var render = function() {
                   _vm._v("Etnia")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Caucasian" } }, [
-                  _vm._v("Caucasian")
+                _c("option", { attrs: { value: "Caucasico" } }, [
+                  _vm._v("Caucasico")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Black" } }, [_vm._v("Black")]),
+                _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Asian" } }, [_vm._v("Asian")]),
+                _c("option", { attrs: { value: "Asiatico" } }, [
+                  _vm._v("Asiatico")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Latin" } }, [_vm._v("Latin")]),
+                _c("option", { attrs: { value: "Latino" } }, [
+                  _vm._v("Latino")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Hindu" } }, [_vm._v("Hindu")]),
+                _c("option", { attrs: { value: "Indù" } }, [_vm._v("Indù")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Arab" } }, [_vm._v("Arab")]),
+                _c("option", { attrs: { value: "Arabo" } }, [_vm._v("Arabo")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Mixed_Race" } }, [
-                  _vm._v("Mixed Race")
+                _c("option", { attrs: { value: "Razza_mista" } }, [
+                  _vm._v("Razza mista")
                 ])
               ]
             )
@@ -47723,22 +47725,24 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Hair Color")
+                  _vm._v("Colore dei capelli")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Black" } }, [_vm._v("Black")]),
+                _c("option", { attrs: { value: "Black" } }, [_vm._v("Nero")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Blonde" } }, [
-                  _vm._v("Blonde")
+                  _vm._v("Bionda")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Brown" } }, [_vm._v("Brown")]),
+                _c("option", { attrs: { value: "Brown" } }, [
+                  _vm._v("Marrone")
+                ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Redhead" } }, [
-                  _vm._v("Redhead")
+                  _vm._v("Testa Rossa")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Others" } }, [_vm._v("Others")])
+                _c("option", { attrs: { value: "Others" } }, [_vm._v("Altri")])
               ]
             )
           ])
@@ -48397,7 +48401,7 @@ var render = function() {
   return _c("div", { staticClass: "form-row" }, [
     _c("div", { staticClass: "col-md-3" }, [
       _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("Country")]),
+        _c("label", [_vm._v("Paese")]),
         _vm._v(" "),
         _c(
           "select",
@@ -48442,7 +48446,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "col-md-3" }, [
       _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("State / Province / City")]),
+        _c("label", [_vm._v("Stato / Provincia / Città")]),
         _vm._v(" "),
         _c(
           "select",
@@ -48468,11 +48472,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-3" }, [
       _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("Nationality")]),
+        _c("label", [_vm._v("Nazionalità")]),
         _vm._v(" "),
         _c("input", {
           staticClass: "form-control",
-          attrs: { type: "text", name: "nationality" }
+          attrs: {
+            type: "text",
+            name: "nationality",
+            pattern: "[a-zA-Z]+",
+            required: ""
+          }
         })
       ])
     ])
@@ -48493,19 +48502,25 @@ var staticRenderFns = [
               _vm._v("Etnia")
             ]),
             _vm._v(" "),
-            _c("option", [_vm._v("Caucasian")]),
+            _c("option", { attrs: { value: "Caucasico" } }, [
+              _vm._v("Caucasico")
+            ]),
             _vm._v(" "),
-            _c("option", [_vm._v("Black")]),
+            _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
             _vm._v(" "),
-            _c("option", [_vm._v("Asian")]),
+            _c("option", { attrs: { value: "Asiatico" } }, [
+              _vm._v("Asiatico")
+            ]),
             _vm._v(" "),
-            _c("option", [_vm._v("Latin")]),
+            _c("option", { attrs: { value: "Latino" } }, [_vm._v("Latino")]),
             _vm._v(" "),
-            _c("option", [_vm._v("Hindu")]),
+            _c("option", { attrs: { value: "Indù" } }, [_vm._v("Indù")]),
             _vm._v(" "),
-            _c("option", [_vm._v("Arab")]),
+            _c("option", { attrs: { value: "Arabo" } }, [_vm._v("Arabo")]),
             _vm._v(" "),
-            _c("option", [_vm._v("Mixed Race")])
+            _c("option", { attrs: { value: "Razza_mista" } }, [
+              _vm._v("Razza mista")
+            ])
           ]
         )
       ])

@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-header">
           <h1 class="text-center">
-            Select a plan
+            Seleziona un piano
           </h1>
         </div>
         <div class="card-body">
@@ -31,7 +31,7 @@
                       </div>
                       <div class="col-md-6 text-center">
                         <h3 class="font-weight-bold">
-                          {{$plan->duration}} days
+                          {{$plan->duration}} giorni
                         </h3>
                       </div>
                     </div>

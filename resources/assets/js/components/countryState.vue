@@ -2,7 +2,7 @@
   <div class="form-row">
     <div class="col-md-3">
       <div class="form-group">
-        <label>Country</label>
+        <label>Paese</label>
         <select class="form-control" name="country" @change="pickCountry" v-model="currentCountry">
           <option v-for="country in countries" :value="country.id">{{ country.country_name }}</option>
         </select>
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label>State / Province / City</label>
+        <label>Stato / Provincia / Città</label>
         <select class="form-control" name="state_id">
           <option v-for="(state, i) in listStates" :value="listStates[i].id">{{ state.name }}</option>
         </select>
@@ -18,8 +18,8 @@
     </div>
     <div class="col-md-3">
       <div class="form-group">
-        <label>Nationality</label>
-        <input type="text" name="nationality" class="form-control">
+        <label>Nazionalità</label>
+        <input type="text" name="nationality" pattern="[a-zA-Z]+" class="form-control" required>
       </div>
     </div>
     <div class="col-md-3">
@@ -27,13 +27,13 @@
         <label>Etnia</label>
         <select class="form-control" name="etnia">
           <option selected disabled>Etnia</option>
-          <option>Caucasian</option>
-          <option>Black</option>
-          <option>Asian</option>
-          <option>Latin</option>
-          <option>Hindu</option>
-          <option>Arab</option>
-          <option>Mixed Race</option>
+          <option value="Caucasico">Caucasico</option>
+          <option value="Nero">Nero</option>
+          <option value="Asiatico">Asiatico</option>
+          <option value="Latino">Latino</option>
+          <option value="Indù">Indù</option>
+          <option value="Arabo">Arabo</option>
+          <option value="Razza_mista">Razza mista</option>
         </select>
       </div>
     </div>

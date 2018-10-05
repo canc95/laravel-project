@@ -40,21 +40,36 @@
                       @guest
 
                         @else
+                          @hasanyrole ('administrator')
                           <li class="nav-item dropdown">
                               <a rel="nofollow" class="nav-link dropdown-toggle" href="#" id="dropdown_dashboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dashboard
+                                Pannello Amministrativo
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a rel="nofollow" href="{{route('dashboard.plan.index')}}" class="dropdown-item">Plans</a>
-                                <a rel="nofollow" href="{{route('dashboard.escort.dashboard')}}" class="dropdown-item">Escorts</a>
-                                <a rel="nofollow" href="{{route('dashboard.country.index')}}" class="dropdown-item">Countries</a>
-                                <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item">States</a>
+                                @can ('index-plan')
+                                  <a rel="nofollow" href="{{route('dashboard.plan.index')}}" class="dropdown-item text-center text-uppercase">Piani</a>
+                                @endcan
+                                @can ('index-escort')
+                                  <a rel="nofollow" href="{{route('dashboard.escort.dashboard')}}" class="dropdown-item text-center text-uppercase">Scorta</a>
+                                @endcan
+                                @can ('index-country')
+                                  <a rel="nofollow" href="{{route('dashboard.country.index')}}" class="dropdown-item text-center text-uppercase">Paesi</a>
+                                @endcan
+                                @can ('index-state')
+                                  <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item text-center text-uppercase">Stati</a>
+                                @endcan
                                 <div class="dropdown-divider"></div>
+                                @can ('index-user')
+                                  <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
+                                @endcan
                               </div>
                             </li>
+                          @endhasanyrole
+                          @hasanyrole ('escort|guest')
                           <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Publish Yourself !</a>
+                            <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Pubblica te stesso !</a>
                           </li>
+                          @endhasanyrole
                       @endguest
 
                     </ul>
@@ -64,10 +79,10 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Accesso') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrare') }}</a>
                             </li>
                         @else
                             <li class="nav-item dropdown">
@@ -79,7 +94,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Disconnettersi') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

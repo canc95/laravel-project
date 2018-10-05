@@ -149,6 +149,7 @@ class EscortController extends Controller
     public function edit($id)
     {
         $escort = Escort::find($id);
+        $this->authorize('pass', $escort);
         return view ('escort.edit', compact('escort'));
     }
 
@@ -188,6 +189,9 @@ class EscortController extends Controller
       }
 
       if ($request->hasFile('photos_extras')) {
+
+        $photos = $request->file('photos_extras');
+
         foreach ($photos as $file) {
 
           $name = $file ->getClientOriginalName();

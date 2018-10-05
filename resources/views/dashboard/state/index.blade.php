@@ -2,13 +2,13 @@
 @section('content')
 
   <div class="container">
-    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="{{'#add'}}"><i class="fas fa-plus"></i> New</button>
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="{{'#add'}}"><i class="fas fa-plus"></i> Nuovo</button>
     <table class="table table-striped table-hover table-bordered mt-3">
       <thead>
         <tr>
-          <th class="text-center">Country</th>
-          <th class="text-center">State</th>
-          <th class="text-center">Options</th>
+          <th class="text-center">Paese</th>
+          <th class="text-center">Stato</th>
+          <th class="text-center">Opzioni</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Edit {{$state->state_name}}</h5>
+              <h5 class="modal-title">Modificare {{$state->state_name}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -42,9 +42,9 @@
               <form action="{{ route('state.update', $state->id) }}" method="post">
                 @csrf
                 <div class="form-group">
-                  <label>Country</label>
+                  <label>Paese</label>
                   <select class="form-control" name="country_id">
-                    <option selected disabled>Select...</option>
+                    <option selected disabled>Selezionare...</option>
                     @foreach ($countries as $country)
                       <option value="{{$country->id}}">
                         {{$country->country_name}}
@@ -53,11 +53,11 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>State</label>
+                  <label>Stato</label>
                   <input type="text" name="name" value="{{$state->name}}" class="form-control">
                 </div>
                 <div class="form-group text-center">
-                  <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                  <input type="submit" class="btn btn-outline-primary" value="Accettare">
                 </div>
                 </form>
               </div>
@@ -72,13 +72,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Delete {{$state->state_name}}</h5>
+                <h5 class="modal-title">Elimina {{$state->state_name}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                  <p>Are you sure want delete {{$state->name}}</p>
+                  <p>Sei sicuro di voler eliminare {{$state->name}}</p>
                   <div class="form-group text-center">
                     <a href="{{route('state.delete', $state->id)}}" class="btn btn-outline-primary btn-block">Delete</a>
                   </div>
@@ -94,7 +94,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Edit {{$state->state_name}}</h5>
+            <h5 class="modal-title">Nuovo {{$state->state_name}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -105,18 +105,18 @@
               <div class="form-group">
                 <label>Country</label>
                 <select class="form-control" name="country_id">
-                  <option selected disabled>Select...</option>
+                  <option selected disabled>Selezionare...</option>
                   @foreach ($countries as $country)
                     <option value="{{$country->id}}">{{$country->country_name}}</option>
                   @endforeach
                 </select>
               </div>
               <div class="form-group">
-                <label>State</label>
+                <label>Stato</label>
                 <input type="text" name="name" class="form-control">
               </div>
               <div class="form-group text-center">
-                <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                <input type="submit" class="btn btn-outline-primary" value="Accettare">
               </div>
               </form>
             </div>

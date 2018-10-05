@@ -5,10 +5,10 @@
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <tr>
-          <th class="text-center">Name</th>
-          <th class="text-center">Age</th>
+          <th class="text-center">Nome</th>
+          <th class="text-center">Eta</th>
           <th class="text-center">Status</th>
-          <th class="text-center">Options</th>
+          <th class="text-center">Opzioni</th>
         </tr>
       </thead>
       <tbody>
@@ -16,12 +16,12 @@
           <tr>
             <td class="text-center">{{$escort->first_name}} {{$escort->last_name}}</td>
             <td class="text-center">{{$escort->age}}</td>
-            <td class="text-center">@if ($escort->status = 0)
-              {{ 'Disabled' }}
-            @elseif ($escort->estatus = 1)
-              {{ 'Active' }}
-            @elseif ($escort->status = 2)
-              {{ 'Pending' }}
+            <td class="text-center">@if ($escort->status == 0)
+              {{ 'Disabilitato' }}
+            @elseif ($escort->estatus == 1)
+              {{ 'Attivo' }}
+            @elseif ($escort->status == 2)
+              {{ 'in attesa di' }}
             @endif</td>
             <td class="text-center">
               <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="{{'#edit' . $escort->id}}"><i class="far fa-edit"></i></button>
@@ -39,7 +39,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Editar {{$escort->first_name}} {{$escort->last_name}}</h5>
+              <h5 class="modal-title">Modificare {{$escort->first_name}} {{$escort->last_name}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -48,16 +48,16 @@
               <form action="{{ route('escort.admin_update', $escort->id) }}" method="post">
                 @csrf
                 <div class="form-group">
-                  <label>Estado de la solicitud</label>
+                  <label>Stato della richiesta</label>
                   <select class="form-control" name="status">
                     <option selected disabled>Select...</option>
-                    <option value="0">Disabled</option>
-                    <option value="1">Active</option>
-                    <option value="2">Peding</option>
+                    <option value="0">Disabilitato</option>
+                    <option value="1">Attivo</option>
+                    <option value="2">In attesa di</option>
                   </select>
                 </div>
                 <div class="form-group text-center">
-                  <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                  <input type="submit" class="btn btn-outline-primary" value="Accettare">
                 </div>
                 </form>
               </div>

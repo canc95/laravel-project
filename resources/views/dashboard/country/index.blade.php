@@ -2,13 +2,13 @@
 @section('content')
 
   <div class="container">
-    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="{{'#add'}}"><i class="fas fa-plus"></i> New</button>
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="{{'#add'}}"><i class="fas fa-plus"></i> Nuovo</button>
     <table class="table table-striped table-hover table-bordered mt-3">
       <thead>
         <tr>
-          <th class="text-center">Continent</th>
-          <th class="text-center">Country</th>
-          <th class="text-center">Options</th>
+          <th class="text-center">Continente</th>
+          <th class="text-center">Paesi</th>
+          <th class="text-center">Opzioni</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Edit {{$country->country_name}}</h5>
+              <h5 class="modal-title">Modificare {{$country->country_name}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -44,21 +44,21 @@
                 <div class="form-group">
                   <label>Continent</label>
                   <select class="form-control" name="continent_name">
-                    <option selected disabled>Select...</option>
+                    <option selected disabled>Selezionare...</option>
                     <option>Africa</option>
                     <option>Asia</option>
-                    <option>Europe</option>
-                    <option>North America</option>
-                    <option>South America</option>
+                    <option>Europa</option>
+                    <option>Nord America</option>
+                    <option>Sud America</option>
                     <option>Oceania</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>Country Name</label>
+                  <label>Paese Nome</label>
                   <input type="text" name="country_name" pattern="[a-zA-Z]+" value="{{$country->country_name}}" class="form-control">
                 </div>
                 <div class="form-group text-center">
-                  <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                  <input type="submit" class="btn btn-outline-primary" value="Accettare">
                 </div>
                 </form>
               </div>
@@ -73,13 +73,13 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Delete {{$country->country_name}}</h5>
+                <h5 class="modal-title">Elimina {{$country->country_name}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                  <p>Are you sure want delete {{$country->country_name}}</p>
+                  <p>Sei sicuro di voler eliminare {{$country->country_name}}</p>
                   <div class="form-group text-center">
                     <a href="{{route('country.delete', $country->id)}}" class="btn btn-outline-primary btn-block"></a>
                   </div>
@@ -95,7 +95,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">New Country</h5>
+            <h5 class="modal-title">Nuovo Paese</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -110,17 +110,17 @@
                   <option>Africa</option>
                   <option>Asia</option>
                   <option>Europe</option>
-                  <option>North America</option>
-                  <option>South America</option>
+                  <option>Nord America</option>
+                  <option>Sud America</option>
                   <option>Oceania</option>
                 </select>
               </div>
               <div class="form-group">
-                <label>Country Name</label>
+                <label>Paese Nome</label>
                 <input type="text" name="country_name" pattern="[a-zA-Z]+" required class="form-control">
               </div>
               <div class="form-group text-center">
-                <input type="submit" class="btn btn-outline-primary" value="Aceptar">
+                <input type="submit" class="btn btn-outline-primary" value="Accettare">
               </div>
               </form>
             </div>

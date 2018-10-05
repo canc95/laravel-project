@@ -26,15 +26,15 @@
   <img src="{{asset('/image/nav-brand-logo.png')}}" class="img-fluid p-3">
   <div class="container mt-5">
     <div class="card text-center">
-      <div class="card-header"><h1>Are you at least 18 years old?</h1></div>
+      <div class="card-header"><h1>Hai almeno 18 anni?</h1></div>
       <div class="card-body">
         <ul>
           <li>terms</li>
         </ul>
       </div>
       <div class="card-footer">
-        <a href="{{route('escort.index')}}" class="btn btn-outline-primary">Yes I am</a>
-        <a href="https://www.google.com/" class="btn btn-outline-primary">No, I am not</a>
+        <a href="{{route('escort.index')}}" class="btn btn-outline-primary">Sì, lo sono</a>
+        <a href="https://www.google.com/" class="btn btn-outline-primary">No, io non sono</a>
       </div>
     </div>
   </div>

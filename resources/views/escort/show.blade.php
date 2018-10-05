@@ -14,7 +14,11 @@
             <h4 class="text-white">{{ $escort->first_name }} {{ $escort->last_name }} <span class="text-danger">{{ $escort->age }}</span></h4>
             @guest
               @else
-                <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span></a>
+                @if (Auth::user()->id == $escort->user_id)
+                  @can ('edit-escort')
+                    <a href="{{route('escort.edit', $escort->id)}}" class="text-white text-uppercase position-absolute button-absolute"><span class="fas fa-pencil-alt"></span></a>
+                  @endcan
+                @endif
             @endguest
           </div>
           <div class="card-body no-border no-padding pt-4">
@@ -30,7 +34,7 @@
               <div class="col-md-6 mt-3">
                 <p class="text-center text-dark"><i class="fas fa-female"></i>, <i class="fas fa-globe"></i> <strong class="font-weight-bold text-capitalize">{{$escort->state->country->country_name}}, {{$escort->state->name}}, {{$escort->nationality}}</strong></p>
                 <p class="text-center text-dark"><i class="far fa-eye"></i> <strong>{{$escort->eye_color}}</strong></p>
-                <p class="text-center text-dark"><strong>Hair Color {{$escort->hair_color}}</strong></p>
+                <p class="text-center text-dark"><strong>Colore dei capelli {{$escort->hair_color}}</strong></p>
               </div>
               <div class="col-md-6 mt-3">
                 <p class="text-center text-dark"><strong>{{$escort->height}} <span class="text-danger">cm</span> </strong></p>
@@ -58,7 +62,7 @@
       </div>
       <div class="col-md-12 p-0">
         <p name="name" rows="3" cols="100" class="bg-primary text-white p-5">
-          <strong class="small text-danger text-uppercase font-weight-bold">About me</strong> <br>
+          <strong class="small text-danger text-uppercase font-weight-bold">A proposito di me</strong> <br>
           {{$escort->description}}
         </p>
       </div>

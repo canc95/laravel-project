@@ -34,40 +34,40 @@
         <div class="row">
           <div class="col-md-3">
             <select class="form-control" @change="sortAge" v-model="escortAge">
-              <option selected disabled>Age</option>
-              <option value="-1,1">Descendent</option>
-              <option value="1,-1">Ascendent</option>
+              <option selected disabled>Eta</option>
+              <option value="-1,1">Discendente</option>
+              <option value="1,-1">Su</option>
             </select>
           </div>
           <div class="col-md-3">
             <select class="form-control" @change="sortByGender" v-model="currentGender">
-              <option selected disabled>Gender</option>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Transexual">Transexual</option>
-              <option value="Other">Other</option>
+              <option selected disabled>Genere</option>
+              <option value="Female">Femmina</option>
+              <option value="Male">Maschio</option>
+              <option value="Transexual">Transessuale</option>
+              <option value="Other">Altro</option>
             </select>
           </div>
           <div class="col-md-3">
             <select class="form-control" @change="sortByEtnia" v-model="currentEtnia">
               <option selected disabled>Etnia</option>
-              <option value="Caucasian">Caucasian</option>
-              <option value="Black">Black</option>
-              <option value="Asian">Asian</option>
-              <option value="Latin">Latin</option>
-              <option value="Hindu">Hindu</option>
-              <option value="Arab">Arab</option>
-              <option value="Mixed_Race">Mixed Race</option>
+              <option value="Caucasico">Caucasico</option>
+              <option value="Nero">Nero</option>
+              <option value="Asiatico">Asiatico</option>
+              <option value="Latino">Latino</option>
+              <option value="Indù">Indù</option>
+              <option value="Arabo">Arabo</option>
+              <option value="Razza_mista">Razza mista</option>
             </select>
           </div>
           <div class="col-md-3">
             <select class="form-control" @change="sortByHairColor" v-model="currentHairColor">
-              <option selected disabled>Hair Color</option>
-              <option value="Black">Black</option>
-              <option value="Blonde">Blonde</option>
-              <option value="Brown">Brown</option>
-              <option value="Redhead">Redhead</option>
-              <option value="Others">Others</option>
+              <option selected disabled>Colore dei capelli</option>
+              <option value="Black">Nero</option>
+              <option value="Blonde">Bionda</option>
+              <option value="Brown">Marrone</option>
+              <option value="Redhead">Testa Rossa</option>
+              <option value="Others">Altri</option>
             </select>
           </div>
         </div>
@@ -102,10 +102,10 @@ export default {
   data() {
     return {
       escorts : [],
-      escortAge: 'Age',
-      currentGender: 'Gender',
+      escortAge: 'Eta',
+      currentGender: 'Genere',
       currentEtnia: 'Etnia',
-      currentHairColor: 'Hair Color',
+      currentHairColor: 'Colore dei capelli',
       listEscortSortAge:[],
       defaultEscorts: []
     }
