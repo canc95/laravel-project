@@ -16,15 +16,17 @@
           <tr>
             <td class="text-center">{{$escort->first_name}} {{$escort->last_name}}</td>
             <td class="text-center">{{$escort->age}}</td>
-            <td class="text-center">@if ($escort->status == 0)
+            <td class="text-center">
+            @if ($escort->status == 0)
               {{ 'Disabilitato' }}
-            @elseif ($escort->estatus == 1)
+            @elseif ($escort->status == 1)
               {{ 'Attivo' }}
             @elseif ($escort->status == 2)
               {{ 'in attesa di' }}
             @endif</td>
             <td class="text-center">
               <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="{{'#edit' . $escort->id}}"><i class="far fa-edit"></i></button>
+              <a class="btn btn-outline-primary" href="{{ route('escort.show', $escort->id)}}"><i class="far fa-eye"></i></a>
             </td>
           </tr>
         @endforeach

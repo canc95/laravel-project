@@ -56,10 +56,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Accesso') }}
                                 </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Hai dimenticato la password?') }}
-                                </a>
+                            </div>
+                            <div class="col-md-8 offset-md-3">
+                              <a class="btn btn-link" href="{{ route('password.request') }}">
+                                  {{ __('Hai dimenticato la password?') }}
+                              </a>
                             </div>
                             <div class="col-md-8 offset-md-3 mt-3 text-uppercase">
                               <a href="{{ route('register') }}" class="btn btn-link">
