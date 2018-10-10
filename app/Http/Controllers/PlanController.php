@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use Auth;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -21,6 +22,7 @@ class PlanController extends Controller
       $plan->description  = $request->description;
       $plan->duration     = $request->duration;
       $plan->price        = $request->price;
+      $plan->last_updated = Auth::user()->id;
       $plan->save();
 
       return redirect()
@@ -34,6 +36,7 @@ class PlanController extends Controller
       $plan->description  = $request->description;
       $plan->duration     = $request->duration;
       $plan->price        = $request->price;
+      $plan->last_updated = Auth::user()->id;
       $plan->save();
       return redirect()
         ->route('dashboard.plan.index');

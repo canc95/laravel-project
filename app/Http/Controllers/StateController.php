@@ -21,6 +21,7 @@ class StateController extends Controller
       $state               = new State();
       $state->country_id   = $request->country_id;
       $state->name         = $request->name;
+      $state->last_updated = Auth::user()->id;
       $state->save();
 
       return redirect()
@@ -32,6 +33,7 @@ class StateController extends Controller
       $state               = State::find($id);
       $state->country_id   = $request->country_id;
       $state->name         = $request->name;
+      $state->last_updated = Auth::user()->id;
       $state->save();
       return redirect()
         ->route('dashboard.state.index');

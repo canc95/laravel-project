@@ -18,6 +18,7 @@ class CreateCountriesTable extends Migration
 
             $table->string('continent_name');
             $table->string('country_name');
+            $table->integer('last_updated')->nullable();
 
             $table->timestamps();
         });

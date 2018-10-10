@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class CountryController extends Controller
       $country                   = new Country();
       $country->continent_name   = $request->continent_name;
       $country->country_name     = $request->country_name;
+      $country->last_updated     = Auth::user()->id;
       $country->save();
 
       return redirect()
@@ -30,6 +32,7 @@ class CountryController extends Controller
       $country                   = Country::find($id);
       $country->continent_name   = $request->continent_name;
       $country->country_name     = $request->country_name;
+      $country->last_updated     = Auth::user()->id;
       $country->save();
       return redirect()
         ->route('dashboard.country.index');

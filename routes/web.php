@@ -14,7 +14,7 @@ Route::get('/', 'PublicController@block')->name('block');
 
 Route::get('/home', 'EscortController@index')->name('escort.index');
 
-Route::get('/pickaplan', 'PlanController@pickplan')->name('dashboard.plan.pickplan')->middleware('guest');
+Route::get('/pickaplan', 'PlanController@pickplan')->name('dashboard.plan.pickplan');
 
 Route::group([
   'prefix' => 'dashboard',

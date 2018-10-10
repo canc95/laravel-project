@@ -44,6 +44,7 @@ class CreateEscortsTable extends Migration
             $table->string('phone');
             $table->text('description');
             $table->integer('status');
+            $table->integer('last_updated')->nullable();
             $table->longText('photo_1')->nullable();
 
             $table->timestamps();

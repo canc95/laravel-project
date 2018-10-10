@@ -42,10 +42,10 @@
           <div class="col-md-3">
             <select class="form-control" @change="sortByGender" v-model="currentGender">
               <option selected disabled>Genere</option>
-              <option value="Female">Femmina</option>
-              <option value="Male">Maschio</option>
-              <option value="Transexual">Transessuale</option>
-              <option value="Other">Altro</option>
+              <option value="Femmina">Femmina</option>
+              <option value="Maschio">Maschio</option>
+              <option value="Transessuale">Transessuale</option>
+              <option value="Altro">Altro</option>
             </select>
           </div>
           <div class="col-md-3">
@@ -63,11 +63,11 @@
           <div class="col-md-3">
             <select class="form-control" @change="sortByHairColor" v-model="currentHairColor">
               <option selected disabled>Colore dei capelli</option>
-              <option value="Black">Nero</option>
-              <option value="Blonde">Bionda</option>
-              <option value="Brown">Marrone</option>
-              <option value="Redhead">Testa Rossa</option>
-              <option value="Others">Altri</option>
+              <option value="Nero">Nero</option>
+              <option value="Bionda">Bionda</option>
+              <option value="Marrone">Marrone</option>
+              <option value="Testa Rossa">Testa Rossa</option>
+              <option value="Altro">Altro</option>
             </select>
           </div>
         </div>

@@ -59,10 +59,10 @@ class RolePermissionTableSeeder extends Seeder
 
         // //Escort Permissions
         $escort = Role::where('name', 'Escort')->first();
-        $escort->givePermissionTo('edit-escort');
+        $escort->givePermissionTo('edit-escort', 'create-escort');
         //
         // //Guest Permissions
         $guest = Role::where('name', 'Guest')->first();
-        $guest->givePermissionTo('show-escort');
+        $guest->givePermissionTo('show-escort', 'create-escort');
     }
 }

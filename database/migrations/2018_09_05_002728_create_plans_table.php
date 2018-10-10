@@ -20,6 +20,7 @@ class CreatePlansTable extends Migration
             $table->text('description');
             $table->integer('duration');
             $table->integer('price');
+            $table->integer('last_updated')->nullable();
 
             $table->timestamps();
         });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Escort;
+use App\Models\Role;
+use App\User;
 use App\Models\State;
 use App\Models\Plan;
 use App\Models\Multimedia;
@@ -99,6 +101,7 @@ class EscortController extends Controller
         $escort->phone        = $request->phone;
         $escort->description  = $request->description;
         $escort->status       = $request->status;
+        $escort->last_updated = Auth::user()->id;
 
         if ($request->hasFile('photo_1')) {
           $photo_1           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();
@@ -132,6 +135,10 @@ class EscortController extends Controller
           }
         }
 
+        $user_role = Auth::user()->id;
+        $user      = User::find($user_role);
+        $user->syncRoles('escort');
+        // $user->assignRole('escort');
         $escort->save();
 
         return redirect()
@@ -178,7 +185,7 @@ class EscortController extends Controller
       $escort->phone        = $request->phone;
       $escort->description  = $request->description;
       $escort->status       = $request->status;
-
+      $escort->last_updated = Auth::user()->id;
 
       if ($request->hasFile('photo_1')) {
         $photo_1           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();

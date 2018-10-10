@@ -47614,17 +47614,19 @@ var render = function() {
                   _vm._v("Genere")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Female" } }, [
+                _c("option", { attrs: { value: "Femmina" } }, [
                   _vm._v("Femmina")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Male" } }, [_vm._v("Maschio")]),
+                _c("option", { attrs: { value: "Maschio" } }, [
+                  _vm._v("Maschio")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Transexual" } }, [
+                _c("option", { attrs: { value: "Transessuale" } }, [
                   _vm._v("Transessuale")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Other" } }, [_vm._v("Altro")])
+                _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
               ]
             )
           ]),
@@ -47728,21 +47730,21 @@ var render = function() {
                   _vm._v("Colore dei capelli")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Black" } }, [_vm._v("Nero")]),
+                _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Blonde" } }, [
+                _c("option", { attrs: { value: "Bionda" } }, [
                   _vm._v("Bionda")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Brown" } }, [
+                _c("option", { attrs: { value: "Marrone" } }, [
                   _vm._v("Marrone")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Redhead" } }, [
+                _c("option", { attrs: { value: "Testa Rossa" } }, [
                   _vm._v("Testa Rossa")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Others" } }, [_vm._v("Altri")])
+                _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
               ]
             )
           ])
