@@ -60,7 +60,7 @@
                                 @endcan
                                 <div class="dropdown-divider"></div>
                                 @can ('index-user')
-                                  <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
+                                  <a rel="nofollow" href="{{route('dashboard.user.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
                                 @endcan
                               </div>
                             </li>

@@ -14,7 +14,8 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+ var VuePaginate = require('vue-paginate');
+ Vue.use(VuePaginate);
 Vue.component('index', require('./components/index.vue'));
 Vue.component('country-state', require('./components/countryState.vue'));
 

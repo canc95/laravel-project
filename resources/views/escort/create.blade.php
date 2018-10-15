@@ -133,13 +133,13 @@
             <div class="form-row mt-3">
               <div class="col-md-6">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="photo_1">
+                  <input type="file" id="profile_photo" class="custom-file-input" name="photo_1" required accept="image/jpg, image/jpeg" >>
                   <label class="custom-file-label">Foto profilo</label>
                 </div>
               </div>
               <div class="col-md-6">
-                <input type="file" class="custom-file-input" name="photos_extras[]" multiple>
-                <label class="custom-file-label">Foto aggiuntive</label>
+                <input type="file" id="photo_extra" class="custom-file-input" name="photos_extras[]" multiple required accept="image/jpg, image/jpeg" >>
+                <label class="custom-file-label">Foto aggiuntive (massimo 5)</label>
               </div>
               <input type="hidden" name="status" value="0">
             </div>

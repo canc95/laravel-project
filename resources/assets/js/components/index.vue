@@ -99,6 +99,7 @@
 
 <script>
 export default {
+
   data() {
     return {
       escorts : [],
@@ -107,7 +108,8 @@ export default {
       currentEtnia: 'Etnia',
       currentHairColor: 'Colore dei capelli',
       listEscortSortAge:[],
-      defaultEscorts: []
+      defaultEscorts: [],
+      paginate: ['escorts']
     }
   },
   methods : {

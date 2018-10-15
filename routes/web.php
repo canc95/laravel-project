@@ -33,6 +33,20 @@ Route::group([
     // delete a state
     Route::get('/delete/{id}', 'StateController@delete')->name('state.delete');
   });
+  // User routes
+  Route::group([
+    'prefix' => 'user',
+    'middleware' => ['permission:index-user'],
+  ], function(){
+    //index all state
+    Route::get('/', 'UserController@index')->name('user.index');
+    //store a user
+    Route::post('/store', 'UserController@store')->name('user.store');
+    //update a user
+    Route::post('/update/{id}', 'UserController@update')->name('user.update');
+    // delete a user
+    Route::get('/delete/{id}', 'UserController@delete')->name('user.delete');
+  });
   // Plan routes
   Route::group([
     'prefix' => 'plan',

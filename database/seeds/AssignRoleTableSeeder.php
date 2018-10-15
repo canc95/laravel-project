@@ -16,12 +16,12 @@ class AssignRoleTableSeeder extends Seeder
     {
       $usuarios = User::all();
 
-      $usuarios[0]->assignRole('Administrator');
+      $usuarios[0]->assignRole('Amministratore');
       for ($i=1; $i < 30 ; $i++) {
-        $usuarios[$i]->assignRole('Escort');
+        $usuarios[$i]->assignRole('Escorta');
       }
       for ($j=31; $j < 51 ; $j++) {
-        $usuarios[$j]->assignRole('Guest');
+        $usuarios[$j]->assignRole('Ospite');
       }
     }
 }

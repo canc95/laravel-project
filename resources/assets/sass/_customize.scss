@@ -12,6 +12,10 @@
   }
 }
 
+.custom-file-input:lang(en) ~ .custom-file-label::after{
+  content: "Navigare"!important;
+}
+
 // Flex-photos
 
 .flex-photos {

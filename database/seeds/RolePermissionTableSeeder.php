@@ -14,9 +14,9 @@ class RolePermissionTableSeeder extends Seeder
     public function run()
     {
         $roles = [
-          'Administrator',
-          'Escort',
-          'Guest',
+          'Amministratore',
+          'Escorta',
+          'Ospite',
         ];
 
         $crud =[
@@ -54,15 +54,15 @@ class RolePermissionTableSeeder extends Seeder
 
         //Admin Permissions
         $all_permission = Permission::all()->pluck('name')->toArray();
-        $administrator = Role::where('name', 'administrator')->first();
+        $administrator = Role::where('name', 'Amministratore')->first();
         $administrator->givePermissionTo($all_permission);
 
         // //Escort Permissions
-        $escort = Role::where('name', 'Escort')->first();
+        $escort = Role::where('name', 'Escorta')->first();
         $escort->givePermissionTo('edit-escort', 'create-escort');
         //
         // //Guest Permissions
-        $guest = Role::where('name', 'Guest')->first();
+        $guest = Role::where('name', 'Ospite')->first();
         $guest->givePermissionTo('show-escort', 'create-escort');
     }
 }
