@@ -14011,9 +14011,9 @@ window.Vue = __webpack_require__(37);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-var VuePaginate = __webpack_require__(42);
+var VuePaginate = __webpack_require__(40);
 Vue.use(VuePaginate);
-Vue.component('index', __webpack_require__(40));
+Vue.component('index', __webpack_require__(41));
 Vue.component('country-state', __webpack_require__(44));
 
 var app = new Vue({
@@ -47295,234 +47295,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(11)
-/* script */
-var __vue_script__ = __webpack_require__(41)
-/* template */
-var __vue_template__ = __webpack_require__(43)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/index.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c05e4f6a", Component.options)
-  } else {
-    hotAPI.reload("data-v-c05e4f6a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      escorts: [],
-      escortAge: 'Eta',
-      currentGender: 'Genere',
-      currentEtnia: 'Etnia',
-      currentHairColor: 'Colore dei capelli',
-      listEscortSortAge: [],
-      defaultEscorts: [],
-      paginate: ['escorts']
-    };
-  },
-
-  methods: {
-    getEscorts: function getEscorts() {
-      var _this = this;
-
-      axios.get('/vue/escorts').then(function (r) {
-        _this.escorts = r.data.escorts;
-        _this.defaultEscorts = r.data.escorts;
-      }).catch(function (e) {
-        console.log(e);
-      });
-    },
-    sortingFunction: function sortingFunction(fv, sv) {
-      function compare(a, b) {
-        if (a.age < b.age) return fv;
-        if (a.age > b.age) return sv;
-        return 0;
-      }
-      this.escorts.sort(compare);
-    },
-    sortByGender: function sortByGender() {
-      var _this2 = this;
-
-      this.escorts = this.defaultEscorts;
-      var escortsGender = this.escorts;
-      escortsGender = this.escorts.filter(function (escort) {
-        return escort.gender == _this2.currentGender;
-      });
-      this.escorts = escortsGender;
-    },
-    sortByEtnia: function sortByEtnia() {
-      var _this3 = this;
-
-      this.escorts = this.defaultEscorts;
-      var escortsEtnia = this.escorts.filter(function (escort) {
-        return escort.etnia == _this3.currentEtnia;
-      });
-      this.escorts = escortsEtnia;
-    },
-    sortByHairColor: function sortByHairColor() {
-      var _this4 = this;
-
-      this.escorts = this.defaultEscorts;
-      var escortsHairColor = this.escorts.filter(function (escort) {
-        return escort.hair_color == _this4.currentHairColor;
-      });
-      this.escorts = escortsHairColor;
-    }
-  },
-  computed: {
-    sortAge: function sortAge() {
-      this.listEscortSortAge = this.escortAge.split(',');
-      var firstValue = this.escortAge[0];
-      var secondValue = this.escortAge[1];
-      this.sortingFunction(firstValue, secondValue);
-    }
-  },
-  created: function created() {
-    this.getEscorts();
-  }
-});
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /**
  * vue-paginate v3.6.0
  * (c) 2018 Taha Shashtari
@@ -48118,6 +47890,234 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   return vuePaginate;
 
 }));
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(42)
+/* template */
+var __vue_template__ = __webpack_require__(43)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c05e4f6a", Component.options)
+  } else {
+    hotAPI.reload("data-v-c05e4f6a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      escorts: [],
+      escortAge: 'Eta',
+      currentGender: 'Genere',
+      currentEtnia: 'Etnia',
+      currentHairColor: 'Colore dei capelli',
+      listEscortSortAge: [],
+      defaultEscorts: [],
+      paginate: ['escorts']
+    };
+  },
+
+  methods: {
+    getEscorts: function getEscorts() {
+      var _this = this;
+
+      axios.get('/vue/escorts').then(function (r) {
+        _this.escorts = r.data.escorts;
+        _this.defaultEscorts = r.data.escorts;
+      }).catch(function (e) {
+        console.log(e);
+      });
+    },
+    sortingFunction: function sortingFunction(fv, sv) {
+      function compare(a, b) {
+        if (a.age < b.age) return fv;
+        if (a.age > b.age) return sv;
+        return 0;
+      }
+      this.escorts.sort(compare);
+    },
+    sortByGender: function sortByGender() {
+      var _this2 = this;
+
+      this.escorts = this.defaultEscorts;
+      var escortsGender = this.escorts;
+      escortsGender = this.escorts.filter(function (escort) {
+        return escort.gender == _this2.currentGender;
+      });
+      this.escorts = escortsGender;
+    },
+    sortByEtnia: function sortByEtnia() {
+      var _this3 = this;
+
+      this.escorts = this.defaultEscorts;
+      var escortsEtnia = this.escorts.filter(function (escort) {
+        return escort.etnia == _this3.currentEtnia;
+      });
+      this.escorts = escortsEtnia;
+    },
+    sortByHairColor: function sortByHairColor() {
+      var _this4 = this;
+
+      this.escorts = this.defaultEscorts;
+      var escortsHairColor = this.escorts.filter(function (escort) {
+        return escort.hair_color == _this4.currentHairColor;
+      });
+      this.escorts = escortsHairColor;
+    }
+  },
+  computed: {
+    sortAge: function sortAge() {
+      this.listEscortSortAge = this.escortAge.split(',');
+      var firstValue = this.escortAge[0];
+      var secondValue = this.escortAge[1];
+      this.sortingFunction(firstValue, secondValue);
+    }
+  },
+  created: function created() {
+    this.getEscorts();
+  }
+});
 
 /***/ }),
 /* 43 */

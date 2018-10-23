@@ -40,7 +40,7 @@
                       @guest
 
                         @else
-                          @hasanyrole ('administrator')
+                          @hasanyrole ('amministratore')
                           <li class="nav-item dropdown">
                               <a rel="nofollow" class="nav-link dropdown-toggle" href="#" id="dropdown_dashboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pannello Amministrativo
@@ -60,12 +60,12 @@
                                 @endcan
                                 <div class="dropdown-divider"></div>
                                 @can ('index-user')
-                                  <a rel="nofollow" href="{{route('dashboard.user.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
+                                  <a rel="nofollow" href="{{route('user.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
                                 @endcan
                               </div>
                             </li>
                           @endhasanyrole
-                          @hasanyrole ('escort|guest')
+                          @hasanyrole ('escorta|ospite')
                           <li class="nav-item">
                             <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Pubblica te stesso !</a>
                           </li>
