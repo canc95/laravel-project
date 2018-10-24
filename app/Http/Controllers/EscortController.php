@@ -137,7 +137,7 @@ class EscortController extends Controller
 
         $user_role = Auth::user()->id;
         $user      = User::find($user_role);
-        $user->syncRoles('escort');
+        $user->syncRoles('escorta');
         // $user->assignRole('escort');
         $escort->save();
 
