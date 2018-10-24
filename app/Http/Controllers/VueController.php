@@ -23,7 +23,7 @@ class VueController extends Controller
 
     public function escorts()
     {
-      $escorts = Escort::get();
+      $escorts = Escort::where('status', 1)->get();
       return response()->json(['escorts' => $escorts]);
     }
 }
