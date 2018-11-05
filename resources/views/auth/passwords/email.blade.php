@@ -21,7 +21,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Posta Elettronica') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">

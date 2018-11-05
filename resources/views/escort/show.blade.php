@@ -55,15 +55,17 @@
             <div class="row">
               @guest
                 <div class="col flex-photos pt-1 pb-2">
-                  @foreach ($escort->multimedias as $multimedia)
-                    <img src="{{ asset("/storage/images/{$multimedia->path}") }}" class="profile-photo" alt="">
-                  @endforeach
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" class="profile-photo" alt="">
                 </div>
                 @else
                   <div class="col flex-photos pt-5 pb-2">
-                    @foreach ($escort->multimedias as $multimedia)
-                      <img src="{{ asset("/storage/images/{$multimedia->path}") }}" class="profile-photo" alt="">
-                    @endforeach
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" class="profile-photo" alt="">
                   </div>
               @endguest
             </div>

@@ -110,29 +110,33 @@ class EscortController extends Controller
 
           $escort->photo_1     = $photo_1;
         }
-        $escort->save();
-        $escort          = Escort::orderBy('id', 'desc')->first();
-        $id              = $escort->id;
+        if ($request->hasFile('photo_2')) {
+          $photo_2           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
 
-        if ($request->hasFile('photos_extras')) {
+          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_2')), $photo_2);
 
-          $photos = $request->file('photos_extras');
+          $escort->photo_2     = $photo_2;
+        }
+        if ($request->hasFile('photo_3')) {
+          $photo_3           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
 
-          foreach ($photos as $file) {
+          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_3')), $photo_3);
 
-            $name = $file ->getClientOriginalName();
-            $name = strtolower(str_replace(' ', '', $name));
-            $path = $file->hashName();
-            $photo = Image::make($file);
+          $escort->photo_3     = $photo_3;
+        }
+        if ($request->hasFile('photo_4')) {
+          $photo_4           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
 
-            Storage::put("/public/images/{$path}", (string) $photo->encode());
+          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_4')), $photo_4);
 
-            $multimedia = new Multimedia;
-            $multimedia->name      = $name;
-            $multimedia->path      = $path;
-            $multimedia->escort_id = $id;
-            $multimedia->save();
-          }
+          $escort->photo_4     = $photo_4;
+        }
+        if ($request->hasFile('photo_5')) {
+          $photo_5           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
+
+          Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_5')), $photo_5);
+
+          $escort->photo_5     = $photo_5;
         }
 
         $user_role = Auth::user()->id;
@@ -194,26 +198,33 @@ class EscortController extends Controller
 
         $escort->photo_1     = $photo_1;
       }
+      if ($request->hasFile('photo_2')) {
+        $photo_2           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
 
-      if ($request->hasFile('photos_extras')) {
+        Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_2')), $photo_2);
 
-        $photos = $request->file('photos_extras');
+        $escort->photo_2     = $photo_2;
+      }
+      if ($request->hasFile('photo_3')) {
+        $photo_3           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
 
-        foreach ($photos as $file) {
+        Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_3')), $photo_3);
 
-          $name = $file ->getClientOriginalName();
-          $name = strtolower(str_replace(' ', '', $name));
-          $path = $file->hashName();
-          $photo = Image::make($file);
+        $escort->photo_3     = $photo_3;
+      }
+      if ($request->hasFile('photo_4')) {
+        $photo_4           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
 
-          Storage::put("/public/images/{$path}", (string) $photo->encode());
+        Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_4')), $photo_4);
 
-          $multimedia = new Multimedia;
-          $multimedia->name      = $name;
-          $multimedia->path      = $path;
-          $multimedia->escort_id = $id;
-          $multimedia->save();
-        }
+        $escort->photo_4     = $photo_4;
+      }
+      if ($request->hasFile('photo_5')) {
+        $photo_5           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
+
+        Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_5')), $photo_5);
+
+        $escort->photo_5     = $photo_5;
       }
 
       $escort->save();

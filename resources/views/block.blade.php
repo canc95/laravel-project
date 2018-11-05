@@ -28,8 +28,20 @@
     <div class="card text-center">
       <div class="card-header"><h1>Hai almeno 18 anni?</h1></div>
       <div class="card-body">
-        <ul>
-          <li>terms</li>
+        <h2 class="text-center">ADULTI SOLO ESCLUSIONE DI RESPONSABILITÀ</h2>
+        <ul class="text-justify">
+          <li>EscortModel.xxx contiene materiale di natura adulta relativo ai servizi di intrattenimento per adulti.</li>
+          <li>Prima di procedere è necessario leggere, comprendere e accettare le seguenti dichiarazioni riguardanti EscortModel.xxx e il materiale all'interno.</li>
+          <li>Accettando le seguenti dichiarazioni e inserendo questo sito Web per adulti, confermi e acconsenti che:</li>
+          <ul>
+            <li>Sei maggiorenne, come definito dal paese o dallo stato da cui accedi a questo sito web, per visualizzare materiale sessualmente esplicito e pornografico.</li>
+            <li>Stai accedendo a questo sito web da un paese o stato in cui è legale accedere a siti Web per adulti o visualizzare materiale sessualmente esplicito o pornografico.</li>
+            <li>Non sei offeso dalla nudità, dalle immagini sessuali o da qualsiasi attività sessuale adulta.</li>
+            <li>Non permetterete a nessun minore o altra persona per chi è illegale, di accedere o visualizzare il materiale che esiste all'interno di questo sito.</li>
+            <li>Non utilizzerai il materiale su questo sito web al di fuori delle autorizzazioni menzionate all'interno.</li>
+          </ul>
+          <li>Questo sito Web utilizza i cookie e consente loro di essere memorizzati sul tuo computer.</li>
+          <li>Hai letto sia i nostri termini d'uso completi che il nostro disclaimer e accetti di essere vincolato da loro.</li>
         </ul>
       </div>
       <div class="card-footer">

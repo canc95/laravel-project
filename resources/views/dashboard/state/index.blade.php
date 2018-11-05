@@ -43,7 +43,7 @@
                 @csrf
                 <div class="form-group">
                   <label>Paese</label>
-                  <select class="form-control" name="country_id">
+                  <select class="form-control" name="country_id" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                     <option selected disabled>Selezionare...</option>
                     @foreach ($countries as $country)
                       <option value="{{$country->id}}">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group">
                   <label>Stato</label>
-                  <input type="text" name="name" value="{{$state->name}}" class="form-control">
+                  <input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="name" value="{{$state->name}}" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group text-center">
                   <input type="submit" class="btn btn-outline-primary" value="Accettare">
@@ -80,7 +80,7 @@
               <div class="modal-body">
                   <p>Sei sicuro di voler eliminare {{$state->name}}</p>
                   <div class="form-group text-center">
-                    <a href="{{route('state.delete', $state->id)}}" class="btn btn-outline-primary btn-block">Delete</a>
+                    <a href="{{route('state.delete', $state->id)}}" class="btn btn-outline-primary btn-block">Eliminare</a>
                   </div>
                   </form>
                 </div>
@@ -104,7 +104,7 @@
               @csrf
               <div class="form-group">
                 <label>Country</label>
-                <select class="form-control" name="country_id">
+                <select class="form-control" name="country_id" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                   <option selected disabled>Selezionare...</option>
                   @foreach ($countries as $country)
                     <option value="{{$country->id}}">{{$country->country_name}}</option>
@@ -113,7 +113,7 @@
               </div>
               <div class="form-group">
                 <label>Stato</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" name="name" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group text-center">
                 <input type="submit" class="btn btn-outline-primary" value="Accettare">

@@ -13988,7 +13988,7 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -14003,18 +14003,19 @@ module.exports = __webpack_require__(52);
  */
 
 __webpack_require__(14);
+__webpack_require__(37);
 
-window.Vue = __webpack_require__(37);
+window.Vue = __webpack_require__(38);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-var VuePaginate = __webpack_require__(40);
+var VuePaginate = __webpack_require__(41);
 Vue.use(VuePaginate);
-Vue.component('index', __webpack_require__(41));
-Vue.component('country-state', __webpack_require__(44));
+Vue.component('index', __webpack_require__(42));
+Vue.component('country-state', __webpack_require__(45));
 
 var app = new Vue({
   el: '#app'
@@ -36064,6 +36065,12 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 37 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47026,10 +47033,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47085,7 +47092,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(39);
+__webpack_require__(40);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47099,7 +47106,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47292,7 +47299,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -47892,15 +47899,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 }));
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(42)
+var __vue_script__ = __webpack_require__(43)
 /* template */
-var __vue_template__ = __webpack_require__(43)
+var __vue_template__ = __webpack_require__(44)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47939,7 +47946,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48120,7 +48127,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48468,19 +48475,19 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(45)
+  __webpack_require__(46)
 }
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48519,17 +48526,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(46);
+var content = __webpack_require__(47);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(48)("b281e508", content, false, {});
+var update = __webpack_require__(49)("b281e508", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48545,21 +48552,21 @@ if(false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(47)(false);
+exports = module.exports = __webpack_require__(48)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 /*
@@ -48641,7 +48648,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -48660,7 +48667,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(49)
+var listToStyles = __webpack_require__(50)
 
 /*
 type StyleObject = {
@@ -48869,7 +48876,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports) {
 
 /**
@@ -48902,11 +48909,12 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -48995,7 +49003,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49019,7 +49027,12 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { name: "country" },
+            attrs: {
+              name: "country",
+              required: "",
+              oninvalid: "this.setCustomValidity('Seleziona un oggetto')",
+              oninput: "this.setCustomValidity('')"
+            },
             on: {
               change: [
                 function($event) {
@@ -49039,11 +49052,18 @@ var render = function() {
               ]
             }
           },
-          _vm._l(_vm.countries, function(country) {
-            return _c("option", { domProps: { value: country.id } }, [
-              _vm._v(_vm._s(country.country_name))
-            ])
-          })
+          [
+            _c("option", { attrs: { disabled: "", selected: "" } }, [
+              _vm._v("Selezionare...")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.countries, function(country) {
+              return _c("option", { domProps: { value: country.id } }, [
+                _vm._v(_vm._s(country.country_name))
+              ])
+            })
+          ],
+          2
         )
       ])
     ]),
@@ -49054,7 +49074,15 @@ var render = function() {
         _vm._v(" "),
         _c(
           "select",
-          { staticClass: "form-control", attrs: { name: "state_id" } },
+          {
+            staticClass: "form-control",
+            attrs: {
+              name: "state_id",
+              required: "",
+              oninvalid: "this.setCustomValidity('Seleziona un oggetto')",
+              oninput: "this.setCustomValidity('')"
+            }
+          },
           _vm._l(_vm.listStates, function(state, i) {
             return _c("option", { domProps: { value: _vm.listStates[i].id } }, [
               _vm._v(_vm._s(state.name))
@@ -49084,7 +49112,9 @@ var staticRenderFns = [
             type: "text",
             name: "nationality",
             pattern: "[a-zA-Z]+",
-            required: ""
+            required: "",
+            oninvalid: "this.setCustomValidity('Verifica questo campo')",
+            oninput: "this.setCustomValidity('')"
           }
         })
       ])
@@ -49100,7 +49130,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c(
           "select",
-          { staticClass: "form-control", attrs: { name: "etnia" } },
+          {
+            staticClass: "form-control",
+            attrs: {
+              name: "etnia",
+              required: "",
+              oninvalid: "this.setCustomValidity('Seleziona un oggetto')",
+              oninput: "this.setCustomValidity('')"
+            }
+          },
           [
             _c("option", { attrs: { selected: "", disabled: "" } }, [
               _vm._v("Etnia")
@@ -49141,7 +49179,7 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

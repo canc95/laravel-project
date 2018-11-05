@@ -45,19 +45,19 @@
                 @csrf
                 <div class="form-group">
                   <label>Nome</label>
-                  <input type="text" class="form-control" name="first_name" pattern="[a-zA-Z]+" required value="{{$user->first_name}}">
+                  <input type="text" class="form-control" name="first_name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required value="{{$user->first_name}}" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Cognome</label>
-                  <input type="text" class="form-control" name="last_name" pattern="[a-zA-Z]+" required value="{{$user->last_name}}">
+                  <input type="text" class="form-control" name="last_name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required value="{{$user->last_name}}" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Posta Elettronica</label>
-                  <input type="email" name="email" value="{{$user->email}}" required class="form-control">
+                  <input type="email" name="email" value="{{$user->email}}" required class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Role</label>
-                  <select class="form-control" name="role" required>
+                  <select class="form-control" name="role" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                     <option
                     @if ($user->getRoleNames()[0] == 'ospite')
                       {{"selected"}}
@@ -132,23 +132,23 @@
               @csrf
               <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="first_name" pattern="[a-zA-Z]+" required>
+                <input type="text" class="form-control" name="first_name" pattern="[a-zA-Z]+" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Cognome</label>
-                <input type="text" class="form-control" name="last_name" pattern="[a-zA-Z]+" required>
+                <input type="text" class="form-control" name="last_name" pattern="[a-zA-Z]+" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="password" required>
+                <input type="password" class="form-control" name="password" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Posta Elettronica</label>
-                <input type="email" name="email" class="form-control" required>
+                <input type="email" name="email" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Ruolo</label>
-                <select class="form-control" name="role" required>
+                <select class="form-control" name="role" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                   <option disabled selected>Selezionare</option>
                   <option value="ospite">Ospite</option>
                   <option value="escorta">Escorta</option>

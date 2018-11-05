@@ -43,7 +43,7 @@
                 @csrf
                 <div class="form-group">
                   <label>Continent</label>
-                  <select class="form-control" name="continent_name">
+                  <select class="form-control" name="continent_name" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                     <option selected disabled>Selezionare...</option>
                     <option>Africa</option>
                     <option>Asia</option>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                   <label>Paese Nome</label>
-                  <input type="text" name="country_name" pattern="[a-zA-Z]+" value="{{$country->country_name}}" class="form-control">
+                  <input type="text" name="country_name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" value="{{$country->country_name}}" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')">
                 </div>
                 <div class="form-group text-center">
                   <input type="submit" class="btn btn-outline-primary" value="Accettare">
@@ -81,7 +81,7 @@
               <div class="modal-body">
                   <p>Sei sicuro di voler eliminare {{$country->country_name}}</p>
                   <div class="form-group text-center">
-                    <a href="{{route('country.delete', $country->id)}}" class="btn btn-outline-primary btn-block"></a>
+                    <a href="{{route('country.delete', $country->id)}}" class="btn btn-outline-primary btn-block">Eliminare</a>
                   </div>
                   </form>
                 </div>
@@ -105,7 +105,7 @@
               @csrf
               <div class="form-group">
                 <label>Continent</label>
-                <select class="form-control" name="continent_name">
+                <select class="form-control" name="continent_name" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
                   <option selected disabled>Select...</option>
                   <option>Africa</option>
                   <option>Asia</option>
@@ -117,7 +117,7 @@
               </div>
               <div class="form-group">
                 <label>Paese Nome</label>
-                <input type="text" name="country_name" pattern="[a-zA-Z]+" required class="form-control">
+                <input type="text" name="country_name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group text-center">
                 <input type="submit" class="btn btn-outline-primary" value="Accettare">

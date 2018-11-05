@@ -42,19 +42,19 @@
                 @csrf
                 <div class="form-group">
                   <label>Piano Nome</label>
-                  <input type="text" name="name" pattern="[a-zA-Z]+" class="form-control" value="{{$plan->name}}">
+                  <input type="text" name="name" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" class="form-control" value="{{$plan->name}}" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Prezzo</label>
-                  <input type="number" name="price" pattern="[0-9]" value="{{$plan->price}}" class="form-control">
+                  <input type="number" name="price" pattern="[0-9]" value="{{$plan->price}}" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Durata (Giorno)</label>
-                  <input type="number" pattern="[0-9]" name="duration" class="form-control" value="{{$plan->duration}}">
+                  <input type="number" pattern="[0-9]" name="duration" class="form-control" value="{{$plan->duration}}" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                   <label>Descrizione</label>
-                  <textarea name="description" rows="5" class="form-control" required>{{$plan->description}}</textarea>
+                  <textarea name="description" rows="5" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">{{$plan->description}}</textarea>
                 </div>
                 <div class="form-group text-center">
                   <input type="submit" class="btn btn-outline-primary" value="Accettare">
@@ -104,19 +104,19 @@
               @csrf
               <div class="form-group">
                 <label>Nome</label>
-                <input type="text" name="name" class="form-control" required pattern="[a-zA-Z]+">
+                <input type="text" name="name" class="form-control" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Prezzo</label>
-                <input type="number" name="price" pattern="[0-9]" required class="form-control">
+                <input type="number" name="price" pattern="[0-9]" required class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Durata (Giorno)</label>
-                <input type="number" name="duration" pattern="[0-9]" required class="form-control">
+                <input type="number" name="duration" pattern="[0-9]" required class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Descrizione</label>
-                <textarea name="description" rows="5" class="form-control" required></textarea>
+                <textarea name="description" rows="5" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')"></textarea>
               </div>
               <div class="form-group text-center">
                 <input type="submit" class="btn btn-outline-primary" value="Accettare">

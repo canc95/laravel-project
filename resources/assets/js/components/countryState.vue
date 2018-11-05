@@ -3,7 +3,8 @@
     <div class="col-md-3">
       <div class="form-group">
         <label>Paese</label>
-        <select class="form-control" name="country" @change="pickCountry" v-model="currentCountry">
+        <select class="form-control" name="country" @change="pickCountry" v-model="currentCountry" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
+          <option disabled selected>Selezionare...</option>
           <option v-for="country in countries" :value="country.id">{{ country.country_name }}</option>
         </select>
       </div>
@@ -11,7 +12,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label>Stato / Provincia / Città</label>
-        <select class="form-control" name="state_id">
+        <select class="form-control" name="state_id" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
           <option v-for="(state, i) in listStates" :value="listStates[i].id">{{ state.name }}</option>
         </select>
       </div>
@@ -19,13 +20,13 @@
     <div class="col-md-3">
       <div class="form-group">
         <label>Nazionalità</label>
-        <input type="text" name="nationality" pattern="[a-zA-Z]+" class="form-control" required>
+        <input type="text" name="nationality" pattern="[a-zA-Z]+" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group">
         <label>Etnia</label>
-        <select class="form-control" name="etnia">
+        <select class="form-control" name="etnia" required oninvalid="this.setCustomValidity('Seleziona un oggetto')" oninput="this.setCustomValidity('')">
           <option selected disabled>Etnia</option>
           <option value="Caucasico">Caucasico</option>
           <option value="Nero">Nero</option>

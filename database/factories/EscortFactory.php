@@ -31,6 +31,11 @@ $factory->define(App\Models\Escort::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'description' => $faker->paragraph,
         'status' => 1,
+        'priority' => 1,
         'photo_1' => 'photo-Lemke-18-American-Heidi1.jpg',
+        'photo_2' => 'photo-Lemke-18-American-Heidi1.jpg',
+        'photo_3' => 'photo-Lemke-18-American-Heidi1.jpg',
+        'photo_4' => 'photo-Lemke-18-American-Heidi1.jpg',
+        'photo_5' => 'photo-Lemke-18-American-Heidi1.jpg'
     ];
 });
