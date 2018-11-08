@@ -8,7 +8,7 @@
               <div class="card no-border">
                 <div class="card-body no-padding">
                   <a href="{{route('escort.show', $escort->id)}}">
-                    <img class="card-img-top img-fluid" src="{{asset('storage/escorts/photos/'. $escort->photo_1)}}" width="286px" height="430px" alt="">
+                    <img class="card-img-top img-index" src="{{asset('storage/escorts/photos/'. $escort->photo_1)}}" width="286px" height="430px" alt="">
                     <div class="profile-hovered text-center">
                       <h3 class="text-white">{{$escort->first_name}}</h3>
                       <h4 class="text-white">{{$escort->service}}</h4>

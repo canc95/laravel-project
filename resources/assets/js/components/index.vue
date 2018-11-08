@@ -76,7 +76,7 @@
             <div class="card no-border">
               <div class="card-body no-padding">
                 <a :href="'/escort/show/'+escort.id">
-                  <img class="card-img-top img-fluid" :src="'/storage/escorts/photos/'+escort.photo_1" alt="">
+                  <img class="card-img-top img-index" :src="'/storage/escorts/photos/'+escort.photo_1" alt="">
                   <div class="profile-hovered text-center">
                     <h3 class="text-white">{{escort.first_name}}</h3>
                     <h4 class="text-white">{{escort.service}}</h4>

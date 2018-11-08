@@ -12,15 +12,17 @@
   }
 }
 
-.img-fluid{
-  width: 286px!important;
-  height: 430px!important;
+.img-index{
+  width: 100%!important;
+  height: 450px!important;
 }
 
 @media(max-width: 986px)
 {
-  width: 100%;
-  height: auto;
+  .img-index{
+    width: 100%;
+    height: auto;
+  }
 }
 
 .custom-file-input:lang(en) ~ .custom-file-label::after{

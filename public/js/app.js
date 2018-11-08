@@ -48368,7 +48368,7 @@ var render = function() {
                 _c("div", { staticClass: "card-body no-padding" }, [
                   _c("a", { attrs: { href: "/escort/show/" + escort.id } }, [
                     _c("img", {
-                      staticClass: "card-img-top img-fluid",
+                      staticClass: "card-img-top img-index",
                       attrs: {
                         src: "/storage/escorts/photos/" + escort.photo_1,
                         alt: ""
