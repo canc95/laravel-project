@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Auth;
 use App\User;
 use App\Models\Role;
@@ -14,7 +17,7 @@ class UserController extends Controller
 {
     public function index()
     {
-      $users = User::orderBy('id', 'asc')->paginate(8);
+      $users = User::paginate(6);
       return view('dashboard.user.index', compact('users'));
     } //index view
 

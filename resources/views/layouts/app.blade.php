@@ -68,7 +68,7 @@
                           @endhasanyrole
                           @hasanyrole ('escorta|ospite')
                           <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Pubblica te stesso !</a>
+                            <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Inserisci annuncio.</a>
                           </li>
                           @endhasanyrole
                       @endguest
@@ -86,6 +86,11 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Registrare') }}</a>
                             </li>
                         @else
+                          @hasanyrole('escorta')
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('my.escorts', Auth::user()->id)}}"> My Escorts</a>
+                          </li>
+                          @endhasanyrole
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->email }} <span class="caret"></span>

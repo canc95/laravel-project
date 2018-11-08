@@ -29,6 +29,7 @@
     <div class="mt-5 pagination justify-content-center">
       {!! $users->render()!!}
     </div>
+  </div>
     {{-- Modal edit --}}
     @foreach ($users as $user)
       <div class="modal fade" id="edit{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -164,6 +165,4 @@
         </div>
       </div>
       {{-- End Modal add --}}
-  </div>
-
 @endsection

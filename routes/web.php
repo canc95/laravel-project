@@ -105,6 +105,7 @@ Route::group([
     Route::post('/update/{id}', 'EscortController@update')->name('escort.update');
   });
   //detail a escort
+  Route::get('/my-escorts/{id}', 'EscortController@my_escorts')->name('my.escorts');
   Route::get('/show/{id}', 'EscortController@show')->name('escort.show');
 });
 

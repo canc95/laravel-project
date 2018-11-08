@@ -142,11 +142,10 @@ class EscortController extends Controller
         $user_role = Auth::user()->id;
         $user      = User::find($user_role);
         $user->syncRoles('escorta');
-        // $user->assignRole('escort');
         $escort->save();
 
         return redirect()
-          ->route('escort.show', $id);
+          ->route('escort.show', $user_role);
     }
 
     public function show($id)
@@ -262,5 +261,12 @@ class EscortController extends Controller
     	$page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
     	$items = $items instanceof Collection ? $items : Collection::make($items);
     	return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+
+    public function my_escorts($id)
+    {
+      $id = Auth::user()->id;
+      $escorts = Escort::where('user_id', $id)->get();
+      return view('Escort.my_escorts', compact('escorts'));
     }
 }

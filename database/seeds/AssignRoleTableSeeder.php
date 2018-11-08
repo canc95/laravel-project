@@ -17,7 +17,7 @@ class AssignRoleTableSeeder extends Seeder
       $usuarios = User::all();
 
       $usuarios[0]->assignRole('Amministratore');
-      for ($i=1; $i < 30 ; $i++) {
+      for ($i=1; $i < 31 ; $i++) {
         $usuarios[$i]->assignRole('Escorta');
       }
       for ($j=31; $j < 51 ; $j++) {
