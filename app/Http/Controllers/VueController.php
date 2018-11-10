@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\State;
 use App\Models\Escort;
+use App\Models\Advertising;
 
 class VueController extends Controller
 {
@@ -25,5 +26,10 @@ class VueController extends Controller
     {
       $escorts = Escort::where('status', 1)->get();
       return response()->json(['escorts' => $escorts]);
+    }
+    public function advertising()
+    {
+      $advertisings = Advertising::get();
+      return response()->json(['advertisings' => $advertisings]);
     }
 }

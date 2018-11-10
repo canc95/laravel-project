@@ -63,6 +63,9 @@
                                 @can ('index-user')
                                   <a rel="nofollow" href="{{route('user.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
                                 @endcan
+                                @can ('index-advertising')
+                                  <a rel="nofollow" href="{{route('advertising.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
+                                @endcan
                               </div>
                             </li>
                           @endhasanyrole

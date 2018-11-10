@@ -3,29 +3,11 @@
     <div class="row">
       <div class="col-md-2">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" v-for="advertising in advertisings">
             <div class="card no-border mt-1">
-              <img src="/image/test6.jpg" class="img-fluid" alt="">
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card no-border mt-1">
-              <img src="/image/test6.jpg" class="img-fluid" alt="">
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card no-border mt-1">
-              <img src="/image/test6.jpg" class="img-fluid" alt="">
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card no-border mt-1">
-              <img src="/image/test6.jpg" class="img-fluid" alt="">
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card no-border mt-1">
-              <img src="/image/test6.jpg" class="img-fluid" alt="">
+              <a :href="advertising.link">
+                <img :src="'/storage/advertisings/photos/'+advertising.photo" class="img-fluid" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -102,6 +84,7 @@ export default {
 
   data() {
     return {
+      advertisings: [],
       escorts : [],
       escortAge: 'Eta',
       currentGender: 'Genere',
@@ -118,6 +101,14 @@ export default {
         this.escorts = r.data.escorts;
         this.defaultEscorts = r.data.escorts;
       }). catch(e => {
+        console.log(e);
+      });
+    },
+    getAdvertisings(){
+      axios.get('/vue/pubblicita').then(r => {
+        this.advertisings = r.data.advertisings;
+        console.log(this.advertisings)
+      }).catch(e => {
         console.log(e);
       });
     },
@@ -158,6 +149,7 @@ export default {
   },
   created(){
     this.getEscorts();
+    this.getAdvertisings();
   }
 }
 </script>

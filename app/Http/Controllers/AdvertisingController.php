@@ -24,12 +24,11 @@ class AdvertisingController extends Controller
   public function store(Request $request)
   {
     $advertising           = new Advertising();
+    $advertising->name     = $request->name;
     $advertising->link     = $request->link;
-    $advertising->duration = $request->duration;
-    $advertising->price    = $request->price;
 
     if ($request->hasFile('photo')) {
-      $photo           = 'photo-' . $request->link. '-1.' . $request->file('photo')->getClientOriginalExtension();
+      $photo           = 'photo-' . $request->name. '-1.' . $request->file('photo')->getClientOriginalExtension();
 
       Storage::putFileAs('/public/advertisings/photos', new File($request->file('photo')), $photo);
 
@@ -37,7 +36,7 @@ class AdvertisingController extends Controller
     }
     $advertising->save();
     return redirect()
-      ->route('escort.index');
+      ->route('advertising.index');
   }
   public function edit($id)
   {
@@ -47,12 +46,11 @@ class AdvertisingController extends Controller
   public function update(Request $request, $id)
   {
     $advertising           = Advertising::find($id);
-    $advertising->link     = $request->link;
-    $advertising->duration = $request->duration;
-    $advertising->price    = $request->price;
+    $advertising->name     = $request->name;
+    $advertising->link    = $request->link;
 
     if ($request->hasFile('photo')) {
-      $photo           = 'photo-' . $request->link. '-1.' . $request->file('photo')->getClientOriginalExtension();
+      $photo           = 'photo-' . $request->name. '-1.' . $request->file('photo')->getClientOriginalExtension();
 
       Storage::putFileAs('/public/advertisings/photos', new File($request->file('photo')), $photo);
 
@@ -60,10 +58,15 @@ class AdvertisingController extends Controller
     }
     $advertising->save();
     return redirect()
-      ->route('escort.index')
+      ->route('advertising.index');
   }
-  public function buy()
-  {
 
+  public function delete($id)
+  {
+    $advertising = Advertising::find($id);
+    $advertising->delete();
+
+    return redirect()
+      ->route('advertising.index');
   }
 }

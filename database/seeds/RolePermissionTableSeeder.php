@@ -24,7 +24,7 @@ class RolePermissionTableSeeder extends Seeder
         ];
 
         $models =[
-          'Plan', 'Country', 'State', 'Escort', 'User',
+          'Plan', 'Country', 'State', 'Escort', 'User', 'Advertising',
         ];
 
         $permissions = [];

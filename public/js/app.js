@@ -48032,28 +48032,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      advertisings: [],
       escorts: [],
       escortAge: 'Eta',
       currentGender: 'Genere',
@@ -48076,6 +48059,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(e);
       });
     },
+    getAdvertisings: function getAdvertisings() {
+      var _this2 = this;
+
+      axios.get('/vue/pubblicita').then(function (r) {
+        _this2.advertisings = r.data.advertisings;
+        console.log(_this2.advertisings);
+      }).catch(function (e) {
+        console.log(e);
+      });
+    },
     sortingFunction: function sortingFunction(fv, sv) {
       function compare(a, b) {
         if (a.age < b.age) return fv;
@@ -48085,30 +48078,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.escorts.sort(compare);
     },
     sortByGender: function sortByGender() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsGender = this.escorts;
       escortsGender = this.escorts.filter(function (escort) {
-        return escort.gender == _this2.currentGender;
+        return escort.gender == _this3.currentGender;
       });
       this.escorts = escortsGender;
     },
     sortByEtnia: function sortByEtnia() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsEtnia = this.escorts.filter(function (escort) {
-        return escort.etnia == _this3.currentEtnia;
+        return escort.etnia == _this4.currentEtnia;
       });
       this.escorts = escortsEtnia;
     },
     sortByHairColor: function sortByHairColor() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsHairColor = this.escorts.filter(function (escort) {
-        return escort.hair_color == _this4.currentHairColor;
+        return escort.hair_color == _this5.currentHairColor;
       });
       this.escorts = escortsHairColor;
     }
@@ -48123,6 +48116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     this.getEscorts();
+    this.getAdvertisings();
   }
 });
 
@@ -48136,7 +48130,27 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "col-md-2" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.advertisings, function(advertising) {
+            return _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card no-border mt-1" }, [
+                _c("a", { attrs: { href: advertising.link } }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src: "/storage/advertisings/photos/" + advertising.photo,
+                      alt: ""
+                    }
+                  })
+                ])
+              ])
+            ])
+          })
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "row" }, [
@@ -48410,61 +48424,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card no-border mt-1" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: { src: "/image/test6.jpg", alt: "" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card no-border mt-1" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: { src: "/image/test6.jpg", alt: "" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card no-border mt-1" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: { src: "/image/test6.jpg", alt: "" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card no-border mt-1" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: { src: "/image/test6.jpg", alt: "" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card no-border mt-1" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: { src: "/image/test6.jpg", alt: "" }
-            })
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
