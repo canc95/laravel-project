@@ -8,6 +8,7 @@ use App\User;
 use App\Models\State;
 use App\Models\Plan;
 use App\Models\Multimedia;
+use App\Models\Advertising;
 use Storage;
 use Image;
 use Auth;
@@ -24,47 +25,9 @@ class EscortController extends Controller
 
     public function index(Request $request)
     {
-
-        $sorters = [
-            'age',
-        ];
-
-        $ranges = [
-            'height',
-        ];
-
-        $filters = [
-            'gender', 'eye_color',
-        ];
-
         $escorts = Escort::get();
-
-        if(count($request->all()) > 0) {
-            foreach ($filters as $filter) {
-                if (array_has($request->all(), $filter)) {
-                    $escorts = $escorts->where($filter, $request[$filter]);
-                }
-            }
-            foreach ($sorters as $sorter) {
-                if (array_has($request->all(), $sorter)) {
-                    $escorts = $request[$sorter] == 'DESC' ? $escorts->sortByDesc($sorter) : $escorts->sortBy($sorter);
-                }
-            }
-            foreach ($ranges as $range) {
-                if (array_has($request->all(), $range)) {
-                    $values = explode(',', $request[$range]);
-                    $min = $values[0];
-                    $max = $values[1];
-                    $escorts = $escorts->where($range, '>=', $min);
-                    $escorts = $escorts->where($range, '<=', $max);
-                }
-            }
-            $escorts = $this->custom_paginate($escorts, 10);
-        } else {
-            $escorts = Escort::paginate(10);
-        }
-
-        return view ('escort.index', compact('escorts'));
+        $advertisings = Advertising::get();
+        return view ('escort.index', compact('escorts', 'advertisings'));
     }
 
     public function create($id)
@@ -104,35 +67,35 @@ class EscortController extends Controller
         $escort->last_updated = Auth::user()->id;
 
         if ($request->hasFile('photo_1')) {
-          $photo_1           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();
+          $photo_1           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();
 
           Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_1')), $photo_1);
 
           $escort->photo_1     = $photo_1;
         }
         if ($request->hasFile('photo_2')) {
-          $photo_2           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
+          $photo_2           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
 
           Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_2')), $photo_2);
 
           $escort->photo_2     = $photo_2;
         }
         if ($request->hasFile('photo_3')) {
-          $photo_3           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
+          $photo_3           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
 
           Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_3')), $photo_3);
 
           $escort->photo_3     = $photo_3;
         }
         if ($request->hasFile('photo_4')) {
-          $photo_4           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
+          $photo_4           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
 
           Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_4')), $photo_4);
 
           $escort->photo_4     = $photo_4;
         }
         if ($request->hasFile('photo_5')) {
-          $photo_5           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
+          $photo_5           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
 
           Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_5')), $photo_5);
 
@@ -144,15 +107,17 @@ class EscortController extends Controller
         $user->syncRoles('escorta');
         $escort->save();
 
+        $escort_id = Escort::orderBy('id', 'desc')->first();
+
         return redirect()
-          ->route('escort.show', $user_role);
+          ->route('escort.show', $escort_id);
     }
 
     public function show($id)
     {
         $escort = Escort::find($id);
         $state  = State::get();
-        $escort->load('multimedias');
+        // $escort->load('multimedias');
         return view ('escort.show', compact('escort', 'state'));
     }
 
@@ -191,35 +156,35 @@ class EscortController extends Controller
       $escort->last_updated = Auth::user()->id;
 
       if ($request->hasFile('photo_1')) {
-        $photo_1           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();
+        $photo_1           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '1.' . $request->file('photo_1')->getClientOriginalExtension();
 
         Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_1')), $photo_1);
 
         $escort->photo_1     = $photo_1;
       }
       if ($request->hasFile('photo_2')) {
-        $photo_2           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
+        $photo_2           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '2.' . $request->file('photo_2')->getClientOriginalExtension();
 
         Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_2')), $photo_2);
 
         $escort->photo_2     = $photo_2;
       }
       if ($request->hasFile('photo_3')) {
-        $photo_3           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
+        $photo_3           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '3.' . $request->file('photo_3')->getClientOriginalExtension();
 
         Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_3')), $photo_3);
 
         $escort->photo_3     = $photo_3;
       }
       if ($request->hasFile('photo_4')) {
-        $photo_4           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
+        $photo_4           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '4.' . $request->file('photo_4')->getClientOriginalExtension();
 
         Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_4')), $photo_4);
 
         $escort->photo_4     = $photo_4;
       }
       if ($request->hasFile('photo_5')) {
-        $photo_5           = 'photo-' . $request->last_name.  '-'. $request->age. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
+        $photo_5           = 'photo-' . $request->last_name.  '-'. $request->passport. '-'. $request->nationality .'-' .$request->first_name. '5.' . $request->file('photo_5')->getClientOriginalExtension();
 
         Storage::putFileAs('/public/escorts/photos', new File($request->file('photo_5')), $photo_5);
 

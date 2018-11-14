@@ -59,17 +59,17 @@
                                 @can ('index-state')
                                   <a rel="nofollow" href="{{route('dashboard.state.index')}}" class="dropdown-item text-center text-uppercase">Stati</a>
                                 @endcan
+                                @can ('index-advertising')
+                                  <a rel="nofollow" href="{{route('advertising.index')}}" class="dropdown-item text-center text-uppercase">Pubblicità</a>
+                                @endcan
                                 <div class="dropdown-divider"></div>
                                 @can ('index-user')
                                   <a rel="nofollow" href="{{route('user.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
                                 @endcan
-                                @can ('index-advertising')
-                                  <a rel="nofollow" href="{{route('advertising.index')}}" class="dropdown-item text-center text-uppercase">Utenti</a>
-                                @endcan
                               </div>
                             </li>
                           @endhasanyrole
-                          @hasanyrole ('escorta|ospite')
+                          @hasanyrole ('ospite')
                           <li class="nav-item">
                             <a class="nav-link" href="{{route('dashboard.plan.pickplan')}}">Inserisci annuncio.</a>
                           </li>

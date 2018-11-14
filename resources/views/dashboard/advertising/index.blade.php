@@ -2,6 +2,7 @@
 @section('content')
 
   <div class="container">
+    <h1 class="text-center">Pubblicità</h1>
     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="{{'#addAdvertising'}}"><i class="fas fa-plus"></i> Nuovo</button>
     <table class="table table-striped table-hover table-bordered" style="width:100">
       <thead>
@@ -45,12 +46,20 @@
                   <input type="text" name="name" value="{{$advertising->name}}" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
+                  <select class="form-control" name="escort_id">
+                    <option selected disabled>Selezionare...</option>
+                    @foreach ($escorts as $escort)
+                      <option value="{{$escort->id}}">{{$escort->first_name}} {{$escort->last_name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
                   <label>Collegamento</label>
                   <input type="text" name="link" class="form-control" value="{{$advertising->link}}" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
-                  <input type="file" class="custom-file-input" name="photo" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')" accept="image/jpg, image/jpeg, image/png" >>
-                  <label class="custom-file-label">Foto</label>
+                  <label>Foto</label>
+                  <input type="file" class="form-control-file" name="photo">
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Accettare" class="btn btn-primary btn-block">
@@ -103,8 +112,16 @@
                 <input type="text" name="name" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
+                <select class="form-control" name="escort_id">
+                  <option selected disabled>Selezionare...</option>
+                  @foreach ($escorts as $escort)
+                    <option value="{{$escort->id}}">{{$escort->first_name}} {{$escort->last_name}}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group">
                 <label>Collegamento</label>
-                <input type="text" name="link" class="form-control" required oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
+                <input type="text" name="link" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
               </div>
               <div class="form-group">
                 <label>Foto</label>

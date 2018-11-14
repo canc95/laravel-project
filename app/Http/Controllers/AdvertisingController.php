@@ -9,13 +9,15 @@ use Auth;
 use Input;
 use Illuminate\Http\File;
 use App\Models\Advertising;
+use App\Models\Escort;
 
 class AdvertisingController extends Controller
 {
   public function index()
   {
     $advertisings = Advertising::orderBy('id', 'desc')->paginate(6);
-    return view('dashboard.advertising.index', compact('advertisings'));
+    $escorts      = Escort::get();
+    return view('dashboard.advertising.index', compact('advertisings', 'escorts'));
   }
   public function create()
   {
@@ -23,9 +25,10 @@ class AdvertisingController extends Controller
   }
   public function store(Request $request)
   {
-    $advertising           = new Advertising();
-    $advertising->name     = $request->name;
-    $advertising->link     = $request->link;
+    $advertising            = new Advertising();
+    $advertising->escort_id = $request->escort_id;
+    $advertising->name      = $request->name;
+    $advertising->link      = $request->link;
 
     if ($request->hasFile('photo')) {
       $photo           = 'photo-' . $request->name. '-1.' . $request->file('photo')->getClientOriginalExtension();
@@ -46,6 +49,7 @@ class AdvertisingController extends Controller
   public function update(Request $request, $id)
   {
     $advertising           = Advertising::find($id);
+    $advertising->escort_id = $request->escort_id;
     $advertising->name     = $request->name;
     $advertising->link    = $request->link;
 

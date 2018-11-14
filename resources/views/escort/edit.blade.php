@@ -107,7 +107,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Altezza</label>
-                  <input type="number" name="height" pattern= "[0-9]" max="250" min="100" value="{{$escort->height}}" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
+                  <input type="number" name="height" pattern= "[0-9]" min="130" max="250" value="{{$escort->height}}" class="form-control" oninvalid="this.setCustomValidity('Verifica questo campo')" oninput="this.setCustomValidity('')">
                 </div>
               </div>
               <div class="col-md-4">

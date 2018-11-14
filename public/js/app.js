@@ -48017,26 +48017,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      advertisings: [],
+      advertisingLinks: [],
+      advertisingEscorts: [],
       escorts: [],
       escortAge: 'Eta',
       currentGender: 'Genere',
@@ -48059,16 +48045,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(e);
       });
     },
-    getAdvertisings: function getAdvertisings() {
-      var _this2 = this;
-
-      axios.get('/vue/pubblicita').then(function (r) {
-        _this2.advertisings = r.data.advertisings;
-        console.log(_this2.advertisings);
-      }).catch(function (e) {
-        console.log(e);
-      });
-    },
     sortingFunction: function sortingFunction(fv, sv) {
       function compare(a, b) {
         if (a.age < b.age) return fv;
@@ -48078,30 +48054,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.escorts.sort(compare);
     },
     sortByGender: function sortByGender() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsGender = this.escorts;
       escortsGender = this.escorts.filter(function (escort) {
-        return escort.gender == _this3.currentGender;
+        return escort.gender == _this2.currentGender;
       });
       this.escorts = escortsGender;
     },
     sortByEtnia: function sortByEtnia() {
-      var _this4 = this;
+      var _this3 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsEtnia = this.escorts.filter(function (escort) {
-        return escort.etnia == _this4.currentEtnia;
+        return escort.etnia == _this3.currentEtnia;
       });
       this.escorts = escortsEtnia;
     },
     sortByHairColor: function sortByHairColor() {
-      var _this5 = this;
+      var _this4 = this;
 
       this.escorts = this.defaultEscorts;
       var escortsHairColor = this.escorts.filter(function (escort) {
-        return escort.hair_color == _this5.currentHairColor;
+        return escort.hair_color == _this4.currentHairColor;
       });
       this.escorts = escortsHairColor;
     }
@@ -48116,7 +48092,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     this.getEscorts();
-    this.getAdvertisings();
   }
 });
 
@@ -48128,300 +48103,262 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "col-md-10" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-2" }, [
+      _c("div", { staticClass: "col-md-3" }, [
         _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.advertisings, function(advertising) {
-            return _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "card no-border mt-1" }, [
-                _c("a", { attrs: { href: advertising.link } }, [
-                  _c("img", {
-                    staticClass: "img-fluid",
-                    attrs: {
-                      src: "/storage/advertisings/photos/" + advertising.photo,
-                      alt: ""
-                    }
-                  })
-                ])
-              ])
-            ])
-          })
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.escortAge,
+                expression: "escortAge"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.escortAge = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortAge
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { selected: "", disabled: "" } }, [
+              _vm._v("Eta")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "-1,1" } }, [_vm._v("Discendente")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1,-1" } }, [_vm._v("Su")])
+          ]
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-10" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.escortAge,
-                    expression: "escortAge"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.escortAge = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                    _vm.sortAge
-                  ]
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Eta")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "-1,1" } }, [
-                  _vm._v("Discendente")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "1,-1" } }, [_vm._v("Su")])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.currentGender,
-                    expression: "currentGender"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.currentGender = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                    _vm.sortByGender
-                  ]
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Genere")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Femmina" } }, [
-                  _vm._v("Femmina")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Maschio" } }, [
-                  _vm._v("Maschio")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Transessuale" } }, [
-                  _vm._v("Transessuale")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.currentEtnia,
-                    expression: "currentEtnia"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.currentEtnia = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                    _vm.sortByEtnia
-                  ]
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Etnia")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Caucasico" } }, [
-                  _vm._v("Caucasico")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Asiatico" } }, [
-                  _vm._v("Asiatico")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Latino" } }, [
-                  _vm._v("Latino")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Indù" } }, [_vm._v("Indù")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Arabo" } }, [_vm._v("Arabo")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Razza_mista" } }, [
-                  _vm._v("Razza mista")
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.currentHairColor,
-                    expression: "currentHairColor"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.currentHairColor = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                    _vm.sortByHairColor
-                  ]
-                }
-              },
-              [
-                _c("option", { attrs: { selected: "", disabled: "" } }, [
-                  _vm._v("Colore dei capelli")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Bionda" } }, [
-                  _vm._v("Bionda")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Marrone" } }, [
-                  _vm._v("Marrone")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Testa Rossa" } }, [
-                  _vm._v("Testa Rossa")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
         _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.escorts, function(escort) {
-            return _c("div", { staticClass: "col-md-4 mt-3" }, [
-              _c("div", { staticClass: "card no-border" }, [
-                _c("div", { staticClass: "card-body no-padding" }, [
-                  _c("a", { attrs: { href: "/escort/show/" + escort.id } }, [
-                    _c("img", {
-                      staticClass: "card-img-top img-index",
-                      attrs: {
-                        src: "/storage/escorts/photos/" + escort.photo_1,
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "profile-hovered text-center" }, [
-                      _c("h3", { staticClass: "text-white" }, [
-                        _vm._v(_vm._s(escort.first_name))
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "text-white" }, [
-                        _vm._v(_vm._s(escort.service))
-                      ]),
-                      _vm._v(" "),
-                      _c("h5", { staticClass: "text-danger" }, [
-                        _vm._v(_vm._s(escort.age))
-                      ])
-                    ])
-                  ])
-                ]),
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentGender,
+                expression: "currentGender"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.currentGender = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortByGender
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { selected: "", disabled: "" } }, [
+              _vm._v("Genere")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Femmina" } }, [_vm._v("Femmina")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Maschio" } }, [_vm._v("Maschio")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Transessuale" } }, [
+              _vm._v("Transessuale")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentEtnia,
+                expression: "currentEtnia"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.currentEtnia = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortByEtnia
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { selected: "", disabled: "" } }, [
+              _vm._v("Etnia")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Caucasico" } }, [
+              _vm._v("Caucasico")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Asiatico" } }, [
+              _vm._v("Asiatico")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Latino" } }, [_vm._v("Latino")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Indù" } }, [_vm._v("Indù")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Arabo" } }, [_vm._v("Arabo")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Razza_mista" } }, [
+              _vm._v("Razza mista")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentHairColor,
+                expression: "currentHairColor"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.currentHairColor = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortByHairColor
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { selected: "", disabled: "" } }, [
+              _vm._v("Colore dei capelli")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Bionda" } }, [_vm._v("Bionda")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Marrone" } }, [_vm._v("Marrone")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Testa Rossa" } }, [
+              _vm._v("Testa Rossa")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.escorts, function(escort) {
+        return _c("div", { staticClass: "col-md-4 mt-3" }, [
+          _c("div", { staticClass: "card no-border" }, [
+            _c("div", { staticClass: "card-body no-padding" }, [
+              _c("a", { attrs: { href: "/escorta/spettacolo/" + escort.id } }, [
+                _c("img", {
+                  staticClass: "card-img-top img-index",
+                  attrs: {
+                    src: "/storage/escorts/photos/" + escort.photo_1,
+                    alt: ""
+                  }
+                }),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
-                  _c("h3", { staticClass: "text-center" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(escort.first_name) +
-                        " " +
-                        _vm._s(escort.last_name) +
-                        "\n              "
-                    )
+                _c("div", { staticClass: "profile-hovered text-center" }, [
+                  _c("h3", { staticClass: "text-white" }, [
+                    _vm._v(_vm._s(escort.first_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-white" }, [
+                    _vm._v(_vm._s(escort.service))
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "text-danger" }, [
+                    _vm._v(_vm._s(escort.age))
                   ])
                 ])
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }, [
+              _c("h3", { staticClass: "text-center" }, [
+                _vm._v(
+                  "\r\n            " +
+                    _vm._s(escort.first_name) +
+                    " " +
+                    _vm._s(escort.last_name) +
+                    "\r\n          "
+                )
+              ])
             ])
-          })
-        )
-      ])
-    ])
+          ])
+        ])
+      })
+    )
   ])
 }
 var staticRenderFns = []

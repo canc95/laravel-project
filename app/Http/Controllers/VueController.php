@@ -27,9 +27,15 @@ class VueController extends Controller
       $escorts = Escort::where('status', 1)->get();
       return response()->json(['escorts' => $escorts]);
     }
-    public function advertising()
+    public function advertisinglinks()
     {
-      $advertisings = Advertising::get();
-      return response()->json(['advertisings' => $advertisings]);
+      $advertisinglinks = Advertising::where('escort_id')->get();
+      dd($advertisinglinks);
+      return response()->json(['advertisingLinks' => $advertisinglinks]);
+    }
+    public function advertisingescorts()
+    {
+      $advertisingescorts = Advertising::where('link')->get();
+      return response()->json(['advertisingEscorts' => $advertisingescorts]);
     }
 }

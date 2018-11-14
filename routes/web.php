@@ -113,7 +113,7 @@ Route::group([
   });
   Route::group(['middleware' => ['permission:edit-escort']], function(){
     //edit escort
-    Route::get('/edit/{id}', 'EscortController@edit')->name('escort.edit');
+    Route::get('/modificare/{id}', 'EscortController@edit')->name('escort.edit');
     //aggiornare a escort
     Route::post('/aggiornare/{id}', 'EscortController@update')->name('escort.update');
   });
@@ -129,7 +129,8 @@ Route::group([
   Route::get('/countries', 'VueController@countries');
   Route::get('/states', 'VueController@states');
   Route::get('/escorts', 'VueController@escorts');
-  Route::get('/pubblicita', 'VueController@advertising');
+  Route::get('/pubblicita-link', 'VueController@advertisinglinks');
+  Route::get('/pubblicita-escort', 'VueController@advertisingescorts');
 });
 
 Auth::routes();
