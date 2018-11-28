@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-5">
         <div class="row">
-          <img src="{{ asset('storage/escorts/photos/'. $escort->photo_1) }}" alt="" class="img-fluid">
+          <img src="{{ asset('storage/escorts/photos/'. $escort->photo_1) }}" alt="{{$escort->first_name}}-{{$escort->last_name}}" class="img-fluid">
         </div>
       </div>
       <div class="col-md-7 p-0">
@@ -51,19 +51,39 @@
             <div class="row">
               @guest
                 <div class="col flex-photos pt-1 pb-2">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" class="profile-photo" alt="">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" class="profile-photo" alt="">
                 </div>
                 @else
                   <div class="col flex-photos pt-5 pb-2">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" class="profile-photo" alt="">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" class="profile-photo" alt="">
                   </div>
               @endguest
+            </div>
+            <div id="photoModal" class="modalPhoto">
+              <span class="close-photo cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content-photo">
+                  <div class="mySlides">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}">
+                  </div>
+                  <div class="mySlides">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}">
+                  </div>
+                  <div class="mySlides">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}">
+                  </div>
+                  <div class="mySlides">
+                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}">
+                  </div>
+                  <!-- Next/previous controls -->
+                  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
             </div>
           </div>
         </div>
@@ -76,5 +96,44 @@
       </div>
     </div>
   </div>
+  <script>
+  // Open the Modal
+  function openModal() {
+    document.getElementById('photoModal').style.display = "block";
+  }
 
+  // Close the Modal
+  function closeModal() {
+    document.getElementById('photoModal').style.display = "none";
+  }
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
 @endsection

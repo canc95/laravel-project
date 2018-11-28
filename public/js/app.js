@@ -47983,54 +47983,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      advertisingLinks: [],
-      advertisingEscorts: [],
       escorts: [],
-      escortAge: 'Eta',
-      currentGender: 'Genere',
-      currentEtnia: 'Etnia',
-      currentHairColor: 'Colore dei capelli',
-      listEscortSortAge: [],
-      defaultEscorts: [],
-      paginate: ['escorts']
+      estates: [],
+      filteredEscorts: [],
+      filteredEstates: []
     };
   },
 
@@ -48040,58 +48000,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       axios.get('/vue/escorts').then(function (r) {
         _this.escorts = r.data.escorts;
-        _this.defaultEscorts = r.data.escorts;
+        _this.filteredEscorts = r.data.escorts;
       }).catch(function (e) {
         console.log(e);
       });
     },
-    sortingFunction: function sortingFunction(fv, sv) {
-      function compare(a, b) {
-        if (a.age < b.age) return fv;
-        if (a.age > b.age) return sv;
-        return 0;
-      }
-      this.escorts.sort(compare);
-    },
-    sortByGender: function sortByGender() {
+    getStates: function getStates() {
       var _this2 = this;
 
-      this.escorts = this.defaultEscorts;
-      var escortsGender = this.escorts;
-      escortsGender = this.escorts.filter(function (escort) {
-        return escort.gender == _this2.currentGender;
+      axios.get('/vue/states').then(function (r) {
+        _this2.estates = r.data.states;
+      }).catch(function (e) {
+        console.log(e);
       });
-      this.escorts = escortsGender;
     },
-    sortByEtnia: function sortByEtnia() {
+    filterModels: function filterModels() {
       var _this3 = this;
 
-      this.escorts = this.defaultEscorts;
-      var escortsEtnia = this.escorts.filter(function (escort) {
-        return escort.etnia == _this3.currentEtnia;
-      });
-      this.escorts = escortsEtnia;
+      if (this.filteredEstates.length == 0) {
+        this.filteredEscorts = this.escorts;
+      } else {
+        this.filteredEscorts = this.escorts.filter(function (escort) {
+          for (var i = 0; i < _this3.filteredEstates.length; i++) {
+            if (escort.state_id == _this3.filteredEstates[i]) {
+              console.log(escort.state_id, _this3.filteredEstates[i]);
+              return escort;
+            }
+          }
+        });
+      }
     },
-    sortByHairColor: function sortByHairColor() {
-      var _this4 = this;
-
-      this.escorts = this.defaultEscorts;
-      var escortsHairColor = this.escorts.filter(function (escort) {
-        return escort.hair_color == _this4.currentHairColor;
-      });
-      this.escorts = escortsHairColor;
-    }
-  },
-  computed: {
-    sortAge: function sortAge() {
-      this.listEscortSortAge = this.escortAge.split(',');
-      var firstValue = this.escortAge[0];
-      var secondValue = this.escortAge[1];
-      this.sortingFunction(firstValue, secondValue);
+    handleCheckbox: function handleCheckbox(e) {
+      if (e.target.checked) {
+        this.filteredEstates.push(e.target.value);
+      } else {
+        var index = this.filteredEstates.indexOf(e.target.value);
+        if (index > -1) {
+          this.filteredEstates.splice(index, 1);
+        }
+      }
+      this.filterModels();
     }
   },
   created: function created() {
     this.getEscorts();
+    this.getStates();
   }
 });
 
@@ -48104,220 +48057,38 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-10" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.escortAge,
-                expression: "escortAge"
-              }
-            ],
-            staticClass: "form-control",
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.estates, function(estate) {
+        return _c("div", { staticClass: "col-md-3 pl-5" }, [
+          _c("input", {
+            attrs: {
+              type: "checkbox",
+              id: "estate" + estate.id,
+              name: "estates" + estate.id
+            },
+            domProps: { value: estate.id },
             on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.escortAge = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sortAge
-              ]
-            }
-          },
-          [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Eta")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "-1,1" } }, [_vm._v("Discendente")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1,-1" } }, [_vm._v("Su")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.currentGender,
-                expression: "currentGender"
+              change: function($event) {
+                _vm.handleCheckbox($event)
               }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.currentGender = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sortByGender
-              ]
             }
-          },
-          [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Genere")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Femmina" } }, [_vm._v("Femmina")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Maschio" } }, [_vm._v("Maschio")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Transessuale" } }, [
-              _vm._v("Transessuale")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.currentEtnia,
-                expression: "currentEtnia"
-              }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.currentEtnia = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sortByEtnia
-              ]
-            }
-          },
-          [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Etnia")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Caucasico" } }, [
-              _vm._v("Caucasico")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Asiatico" } }, [
-              _vm._v("Asiatico")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Latino" } }, [_vm._v("Latino")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Indù" } }, [_vm._v("Indù")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Arabo" } }, [_vm._v("Arabo")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Razza_mista" } }, [
-              _vm._v("Razza mista")
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.currentHairColor,
-                expression: "currentHairColor"
-              }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.currentHairColor = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sortByHairColor
-              ]
-            }
-          },
-          [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Colore dei capelli")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Nero" } }, [_vm._v("Nero")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Bionda" } }, [_vm._v("Bionda")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Marrone" } }, [_vm._v("Marrone")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Testa Rossa" } }, [
-              _vm._v("Testa Rossa")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Altro" } }, [_vm._v("Altro")])
-          ]
-        )
-      ])
-    ]),
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "estate" + estate.id } }, [
+            _vm._v(_vm._s(estate.name))
+          ])
+        ])
+      })
+    ),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },
-      _vm._l(_vm.escorts, function(escort) {
+      _vm._l(_vm.filteredEscorts, function(escort) {
         return _c("div", { staticClass: "col-md-4 mt-3" }, [
-          _c("div", { staticClass: "card no-border" }, [
+          _c("div", { staticClass: "card no-border animated fadeInUp" }, [
             _c("div", { staticClass: "card-body no-padding" }, [
               _c("a", { attrs: { href: "/escorta/spettacolo/" + escort.id } }, [
                 _c("img", {

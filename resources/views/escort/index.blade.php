@@ -8,15 +8,15 @@
           <div class="col-md-12">
             @foreach ($advertisings as $advertising)
                 @if ($advertising->link == '')
-                  <div class="card no-border mt-1">
+                  <div class="card no-border mt-1 animated fadeInUp">
                     <a href="{{route('escort.show', $advertising->escort_id)}}">
-                      <img src="{{asset('storage/advertisings/photos/' . $advertising->photo)}}" class="img-fluid" alt="">
+                      <img src="{{asset('storage/advertisings/photos/' . $advertising->photo)}}" class="img-advertising" alt="">
                     </a>
                   </div>
                   @else
-                    <div class="card no-border mt-1">
+                    <div class="card no-border mt-1 animated fadeInUp">
                       <a href="{{$advertising->link}}" target="_blank">
-                        <img src="{{asset('storage/advertisings/photos/' . $advertising->photo)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/advertisings/photos/' . $advertising->photo)}}" class="img-advertising" alt="">
                       </a>
                     </div>
                 @endif

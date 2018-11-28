@@ -16,10 +16,20 @@
         @foreach ($advertisings as $advertising)
           <tr>
             <td class="text-center">
-              <img src="{{asset('storage/advertisings/photos'. $advertising->photo)}}" width="80px" height="100px" class="img-thumbnail" alt="">
+              <img src="{{asset('storage/advertisings/photos/'. $advertising->photo)}}" width="80px" height="100px" class="img-thumbnail" alt="">
             </td>
-            <td class="text-center">{{$advertising->link}}</td>
-            <td class="text-center">
+            <td class="text-center pt-5">
+              @if ($advertising->link != null)
+                {{$advertising->link}}
+                @else
+                  @foreach ($escorts as $escort)
+                    @if ($advertising->escort_id == $escort->id)
+                      {{$escort->first_name}} {{$escort->last_name}}
+                    @endif
+                  @endforeach
+              @endif
+            </td>
+            <td class="text-center pt-5">
               <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="{{'#edit' . $advertising->id}}"><i class="far fa-edit"></i></button>
               <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="{{'#delete' . $advertising->id}}"><i class="fas fa-trash"></i></button>
             </td>
