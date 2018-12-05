@@ -5,6 +5,29 @@
   border: none !important;
 }
 
+
+.list-enter-active {
+  transition: 1s ease;
+}
+
+.list-leave-active {
+  transition: opacity 1s ease;
+  position: absolute;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  background-color: white;
+  transform: translateY(10px);
+}
+
+.list-move {
+  transition: 2s ease;
+}
+
+
+
 .card-header {
   .button-absolute {
     top: 15px;
@@ -15,6 +38,11 @@
 .img-index{
   width: 100%!important;
   height: 450px!important;
+}
+
+.card-plan{
+  width: 100%;
+  height:450px!important;
 }
 
 @media(max-width: 986px)

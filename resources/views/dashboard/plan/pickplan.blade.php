@@ -12,8 +12,8 @@
         <div class="card-body">
           <div class="row">
             @foreach ($plans as $plan)
-              <div class="col-md-4">
-                <div class="card">
+              <div class="col-md-4 mb-3">
+                <div class="card card-plan">
                   <div class="card-header">
                     <h2 class="text-center text-uppercase">
                       {{$plan->name}}
@@ -24,12 +24,12 @@
                       {{$plan->description}}
                     </p>
                     <div class="form-row">
-                      <div class="col-md-6 text-center">
+                      <div class="col-md-6 text-center align-text-bottom">
                         <h3 class="font-weight-bold">
                           $ {{$plan->price}}
                         </h3>
                       </div>
-                      <div class="col-md-6 text-center">
+                      <div class="col-md-6 text-center align-text-bottom">
                         <h3 class="font-weight-bold">
                           {{$plan->duration}} giorni
                         </h3>

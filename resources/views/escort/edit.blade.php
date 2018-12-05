@@ -119,7 +119,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Colore dei capelli</label>
-                  <select class="form-control" name="hair_color">
+                  <select class="form-control" name="hair_color" required>
                     <option selected disabled>Colore dei capelli</option>
                     <option
                     @if ($escort->hair_color == 'Nero')

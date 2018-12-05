@@ -10616,6 +10616,30 @@ th {
   border: none !important;
 }
 
+.list-enter-active {
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.list-leave-active {
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+  position: absolute;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  background-color: white;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.list-move {
+  -webkit-transition: 2s ease;
+  transition: 2s ease;
+}
+
 .card-header .button-absolute {
   top: 15px;
   right: 15px;
@@ -10623,6 +10647,11 @@ th {
 
 .img-index {
   width: 100% !important;
+  height: 450px !important;
+}
+
+.card-plan {
+  width: 100%;
   height: 450px !important;
 }
 

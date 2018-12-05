@@ -48056,81 +48056,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-10" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.estates, function(estate) {
-        return _c("div", { staticClass: "col-md-3 pl-5" }, [
-          _c("input", {
-            attrs: {
-              type: "checkbox",
-              id: "estate" + estate.id,
-              name: "estates" + estate.id
-            },
-            domProps: { value: estate.id },
-            on: {
-              change: function($event) {
-                _vm.handleCheckbox($event)
+  return _c(
+    "div",
+    { staticClass: "col-md-10" },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.estates, function(estate) {
+          return _c("div", { staticClass: "col-md-3 pl-5" }, [
+            _c("input", {
+              attrs: {
+                type: "checkbox",
+                id: "estate" + estate.id,
+                name: "estates" + estate.id
+              },
+              domProps: { value: estate.id },
+              on: {
+                change: function($event) {
+                  _vm.handleCheckbox($event)
+                }
               }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "estate" + estate.id } }, [
-            _vm._v(_vm._s(estate.name))
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "estate" + estate.id } }, [
+              _vm._v(_vm._s(estate.name))
+            ])
           ])
-        ])
-      })
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.filteredEscorts, function(escort) {
-        return _c("div", { staticClass: "col-md-4 mt-3" }, [
-          _c("div", { staticClass: "card no-border animated fadeInUp" }, [
-            _c("div", { staticClass: "card-body no-padding" }, [
-              _c("a", { attrs: { href: "/escorta/spettacolo/" + escort.id } }, [
-                _c("img", {
-                  staticClass: "card-img-top img-index",
-                  attrs: {
-                    src: "/storage/escorts/photos/" + escort.photo_1,
-                    alt: ""
-                  }
-                }),
+        })
+      ),
+      _vm._v(" "),
+      _c(
+        "transition-group",
+        {
+          staticClass: "row",
+          attrs: { tag: "div", mode: "out-in", name: "list", appear: "" }
+        },
+        _vm._l(_vm.filteredEscorts, function(escort) {
+          return _c(
+            "div",
+            { key: escort.id, staticClass: "col-md-4 mt-3 component-fade" },
+            [
+              _c("div", { staticClass: "card no-border" }, [
+                _c("div", { staticClass: "card-body no-padding" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "/escorta/spettacolo/" + escort.id } },
+                    [
+                      _c("img", {
+                        staticClass: "card-img-top img-index",
+                        attrs: {
+                          src: "/storage/escorts/photos/" + escort.photo_1,
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "profile-hovered text-center" },
+                        [
+                          _c("h3", { staticClass: "text-white" }, [
+                            _vm._v(_vm._s(escort.first_name))
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", { staticClass: "text-white" }, [
+                            _vm._v(_vm._s(escort.service))
+                          ]),
+                          _vm._v(" "),
+                          _c("h5", { staticClass: "text-danger" }, [
+                            _vm._v(_vm._s(escort.age))
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "profile-hovered text-center" }, [
-                  _c("h3", { staticClass: "text-white" }, [
-                    _vm._v(_vm._s(escort.first_name))
-                  ]),
-                  _vm._v(" "),
-                  _c("h4", { staticClass: "text-white" }, [
-                    _vm._v(_vm._s(escort.service))
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "text-danger" }, [
-                    _vm._v(_vm._s(escort.age))
+                _c("div", { staticClass: "card-footer" }, [
+                  _c("h3", { staticClass: "text-center" }, [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(escort.first_name) +
+                        " " +
+                        _vm._s(escort.last_name) +
+                        "\r\n          "
+                    )
                   ])
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _c("h3", { staticClass: "text-center" }, [
-                _vm._v(
-                  "\r\n            " +
-                    _vm._s(escort.first_name) +
-                    " " +
-                    _vm._s(escort.last_name) +
-                    "\r\n          "
-                )
-              ])
-            ])
-          ])
-        ])
-      })
-    )
-  ])
+            ]
+          )
+        })
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

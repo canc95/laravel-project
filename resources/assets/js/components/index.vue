@@ -6,9 +6,9 @@
       <label :for='"estate" + estate.id'>{{estate.name}}</label>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 mt-3" v-for="escort in filteredEscorts">
-      <div class="card no-border animated fadeInUp">
+  <transition-group tag="div" class="row" mode="out-in" name="list" appear>
+    <div class="col-md-4 mt-3 component-fade" v-for="escort in filteredEscorts" :key="escort.id">
+      <div class="card no-border">
         <div class="card-body no-padding">
           <a :href="'/escorta/spettacolo/'+escort.id">
             <img class="card-img-top img-index" :src="'/storage/escorts/photos/'+escort.photo_1" alt="">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </transition-group>
 </div>
 </template>
 
