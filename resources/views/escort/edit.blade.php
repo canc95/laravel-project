@@ -179,27 +179,38 @@
             <div class="form-group mt-3">
               <div class="col-md-12">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="photo_1" accept="image/jpg, image/jpeg, image/png">
-                  <label class="custom-file-label">Foto profilo</label>
+                  <label class="img-refer">
+                    <input type="file" id="profile_photo" class="custom-file-input" name="photo_1">
+                  </label>
+                  <label class="custom-file-label" id="profilePhoto" for="profile_photo">Foto profilo</label>
                 </div>
               </div>
+              <input type="hidden" name="status" value="2">
             </div>
             <div class="form-row mt-5">
               <div class="col-md-3">
-                <input type="file" id="photo_2" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
-                <label class="custom-file-label">Foto aggiuntive 1</label>
+                <label class="img-refer2">
+                  <input type="file" id="photo_2" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                </label>
+                <label class="custom-file-label" id="fotoAditional2" for="photo_2">Foto aggiuntive</label>
               </div>
               <div class="col-md-3">
-                <input type="file" id="photo_3" class="custom-file-input" name="photo_3" accept="image/jpg, image/jpeg, image/png">
-                <label class="custom-file-label">Foto aggiuntive 2</label>
+                <label class="img-refer3">
+                  <input type="file" id="photo_3" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                </label>
+                <label class="custom-file-label" id="fotoAditional3" for="photo_3">Foto aggiuntive</label>
               </div>
               <div class="col-md-3">
-                <input type="file" id="photo_4" class="custom-file-input" name="photo_4" accept="image/jpg, image/jpeg, image/png">
-                <label class="custom-file-label">Foto aggiuntive 3</label>
+                <label class="img-refer4">
+                  <input type="file" id="photo_4" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                </label>
+                <label class="custom-file-label" id="fotoAditional4" for="photo_4">Foto aggiuntive</label>
               </div>
               <div class="col-md-3">
-                <input type="file" id="photo_5" class="custom-file-input" name="photo_5" accept="image/jpg, image/jpeg, image/png">
-                <label class="custom-file-label">Foto aggiuntive 4</label>
+                <label class="img-refer5">
+                  <input type="file" id="photo_5" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                </label>
+                <label class="custom-file-label" id="fotoAditional5" for="photo_5">Foto aggiuntive</label>
               </div>
             </div>
             <div class="col-md-12 text-center mt-5">
@@ -209,6 +220,25 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".img-refer").on('change', function() {
+        $("#profilePhoto").text($('#profile_photo').val().replace(/C:\\fakepath\\/i, ''));
+      });
+      $(".img-refer2").on('change', function() {
+        $("#fotoAditional2").text($('#photo_2').val().replace(/C:\\fakepath\\/i, ''));
+      });
+      $(".img-refer3").on('change', function() {
+        $("#fotoAditional3").text($('#photo_3').val().replace(/C:\\fakepath\\/i, ''));
+      });
+      $(".img-refer4").on('change', function() {
+        $("#fotoAditional4").text($('#photo_4').val().replace(/C:\\fakepath\\/i, ''));
+      });
+      $(".img-refer5").on('change', function() {
+        $("#fotoAditional5").text($('#photo_5').val().replace(/C:\\fakepath\\/i, ''));
+      });
+    });
+    </script>
   </div>
 
 @endsection

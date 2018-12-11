@@ -59,7 +59,7 @@ class ResetPasswordNotification extends Notification
 
       return (new MailMessage)
           ->subject('Richiesta di reimpostazione della password')
-          ->greeting('Ciao' . $notifiable->first_name . ' ' . $notifiable->last_name)
+          ->greeting('Ciao ' . $notifiable->first_name . ' ' . $notifiable->last_name)
           ->line('Hai ricevuto questa email perché abbiamo ricevuto una richiesta di reimpostazione della password per il tuo account.')
           ->action('Resetta la password', url(config('app.url').route('password.reset', $this->token, false)))
           ->line('Se non hai richiesto la reimpostazione della password, non è richiesta alcuna ulteriore azione.')

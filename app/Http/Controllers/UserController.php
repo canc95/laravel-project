@@ -60,4 +60,38 @@ class UserController extends Controller
       return redirect()
         ->route('user.index');
     } //delete user
+
+    public function changePassword($id)
+    {
+      return view ('dashboard.user.change_password');
+    }
+
+    public function changedPassword(Request $request, $id)
+    {
+      $user = User::find($id);
+
+      $validator = Validator::make($request->all(), [
+        'currentPassword' => 'required',
+        'newPassword' => 'required|string|min:6|confirmed',
+      ]);
+
+      if ($validator->fails()) {
+        return redirect()->route('change.password', $user->id)->withErrors($validator);
+      }
+
+      $currentPassword = $user->password;
+
+      $checked = Hash::check($request->currentPassword, $currentPassword);
+
+      if ($checked == false)
+      {
+        return redirect()->route('change.password', $user->id)->with('error-checked', 'La password corrente è errata');
+      }
+
+      $user->password = bcrypt($request->newPassword);
+      $user->save();
+
+      return redirect()
+        ->route('escort.index');
+    }
 }

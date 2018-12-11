@@ -16,6 +16,9 @@ Route::get('/home', 'EscortController@index')->name('escort.index');
 
 Route::get('/scegli-un-piano', 'PlanController@pickplan')->name('dashboard.plan.pickplan');
 
+Route::get('/cambia-password/{id}', 'UserController@changePassword')->name('change.password');
+Route::post('/change-pass/{id}', 'UserController@changedPassword')->name('changePass');
+
 Route::group([
   'prefix' => 'cruscotto',
 ], function(){
