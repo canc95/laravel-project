@@ -150,19 +150,19 @@
               </div>
               <div class="col-md-3">
                 <label class="img-refer3">
-                  <input type="file" id="photo_3" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                  <input type="file" id="photo_3" class="custom-file-input" name="photo_3" accept="image/jpg, image/jpeg, image/png">
                 </label>
                 <label class="custom-file-label" id="fotoAditional3" for="photo_3">Foto aggiuntive</label>
               </div>
               <div class="col-md-3">
                 <label class="img-refer4">
-                  <input type="file" id="photo_4" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                  <input type="file" id="photo_4" class="custom-file-input" name="photo_4" accept="image/jpg, image/jpeg, image/png">
                 </label>
                 <label class="custom-file-label" id="fotoAditional4" for="photo_4">Foto aggiuntive</label>
               </div>
               <div class="col-md-3">
                 <label class="img-refer5">
-                  <input type="file" id="photo_5" class="custom-file-input" name="photo_2" accept="image/jpg, image/jpeg, image/png">
+                  <input type="file" id="photo_5" class="custom-file-input" name="photo_5" accept="image/jpg, image/jpeg, image/png">
                 </label>
                 <label class="custom-file-label" id="fotoAditional5" for="photo_5">Foto aggiuntive</label>
               </div>
