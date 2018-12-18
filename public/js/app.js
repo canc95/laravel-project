@@ -14003,7 +14003,6 @@ module.exports = __webpack_require__(53);
  */
 
 __webpack_require__(14);
-__webpack_require__(37);
 
 window.Vue = __webpack_require__(38);
 
@@ -36064,12 +36063,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
+/* 37 */,
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -61,6 +61,10 @@
 
 .flex-photos {
   display: flex;
+-webkit-display: flex;
+-moz-display: flex;
+-ms--display: flex;
+  clear: both;
   flex-wrap: wrap;
 }
 
@@ -148,6 +152,7 @@ img.demo {
 .active,
 .demo:hover {
   opacity: 1;
+  cursor:pointer;
 }
 
 .modalPhoto {

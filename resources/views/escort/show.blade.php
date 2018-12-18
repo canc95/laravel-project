@@ -3,10 +3,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-5">
-        <div class="row">
-          <img src="{{ asset('storage/escorts/photos/'. $escort->photo_1) }}" alt="{{$escort->first_name}}-{{$escort->last_name}}" class="img-fluid">
-        </div>
+      <div class="col-md-5 pr-0">
+        <img src="{{ asset('storage/escorts/photos/'. $escort->photo_1) }}" alt="{{$escort->first_name}}-{{$escort->last_name}}" height="100%" width="100%">
       </div>
       <div class="col-md-7 p-0">
         <div class="card">
@@ -24,8 +22,8 @@
           <div class="card-body no-border no-padding pt-4">
             <div class="row">
               <div class="col-md-12">
-                <h5 class="text-uppercase text-danger text-center">{{$escort->service}}</h5>
-                <h6 class="text-uppercase text-center mt-3"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h6>
+                <h4 class="text-uppercase text-danger text-center">{{$escort->service}}</h4>
+                <h5 class="text-uppercase text-center mt-3"><i class="fas fa-phone-square"></i> {{$escort->phone}}</h5>
               </div>
               <div class="col-md-6 mt-3">
                 <p class="text-center text-dark">
@@ -48,20 +46,35 @@
                 <p class="text-center text-dark"><strong>{{$escort->breast}} - <span class="text-danger">{{$escort->waist}}</span> - {{$escort->hip}}</strong></p>
               </div>
             </div>
-            <div class="row">
               @guest
-                <div class="col flex-photos pt-1 pb-2">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" class="profile-photo" alt="">
-                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" class="profile-photo" alt="">
+              <div class="row pt-1 pb-2 pl-4 pr-4">
+                <div class="col-md-3 no-padding">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" width="100%" height="300px" class="demo" alt="">
                 </div>
+                <div class="col-md-3 no-padding">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" width="100%" height="300px" class="demo" alt="">
+                </div>
+                <div class="col-md-3 no-padding">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" width="100%" height="300px" class="demo" alt="">
+                </div>
+                <div class="col-md-3 no-padding">
+                  <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" width="100%" height="300px" class="demo" alt="">
+                </div>
+              </div>
                 @else
-                  <div class="col flex-photos pt-5 pb-2">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" class="profile-photo" alt="">
-                    <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" class="profile-photo" alt="">
+                  <div class="row pt-5 pl-4 pr-4">
+                    <div class="col-md-3 no-padding">
+                      <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_2) }}" onclick="openModal();currentSlide(1)" width="100%" height="300px" class="demo" alt="">
+                    </div>
+                    <div class="col-md-3 no-padding">
+                      <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_3) }}" onclick="openModal();currentSlide(2)" width="100%" height="300px" class="demo" alt="">
+                    </div>
+                    <div class="col-md-3 no-padding">
+                      <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_4) }}" onclick="openModal();currentSlide(3)" width="100%" height="300px" class="demo" alt="">
+                    </div>
+                    <div class="col-md-3 no-padding">
+                      <img src="{{ asset('/storage/escorts/photos/'. $escort->photo_5) }}" onclick="openModal();currentSlide(4)" width="100%" height="300px" class="demo" alt="">
+                    </div>
                   </div>
               @endguest
             </div>

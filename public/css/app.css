@@ -10670,6 +10670,10 @@ th {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms--display: flex;
+  clear: both;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -10765,6 +10769,7 @@ img.demo {
 .active,
 .demo:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 .modalPhoto {
